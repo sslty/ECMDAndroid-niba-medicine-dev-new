@@ -1,0 +1,320 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/normal_button"
+    android:orientation="vertical">
+    
+    <!--<RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <com.nibatech.ecmd.view.RoundRadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="治愈"
+            android:textSize="12sp"
+            app:rv_backgroundPressColor="@color/dark_button"
+            app:rv_cornerRadius_BL="15dp"
+            app:rv_cornerRadius_TL="15dp"
+            app:rv_strokeColor="@color/line"
+            app:rv_textPressColor="@color/white" />
+
+        <com.nibatech.ecmd.view.RoundRadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="治愈"
+            android:textSize="12sp"
+            app:rv_backgroundPressColor="@color/dark_button"
+            app:rv_strokeColor="@color/line"
+            app:rv_textPressColor="@color/white" />
+
+        <com.nibatech.ecmd.view.RoundRadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="治愈"
+            android:textSize="12sp"
+            app:rv_backgroundPressColor="@color/dark_button"
+            app:rv_strokeColor="@color/line"
+            app:rv_textPressColor="@color/white" />
+
+        <com.nibatech.ecmd.view.RoundRadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="治愈"
+            android:textSize="12sp"
+            app:rv_cornerRadius_BR="15dp"
+            app:rv_cornerRadius_TR="15dp"
+            app:rv_backgroundPressColor="@color/dark_button"
+            app:rv_strokeColor="@color/line"
+            app:rv_textPressColor="@color/white" />
+
+
+    </RadioGroup>-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_zero"
+            android:layout_weight="0.8"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:src="@drawable/launcher" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/id_progress_bar_login"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/id_form_login"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.7"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    app:hintTextAppearance="@style/InputTextFloatingStyle">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/id_et_input_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/phone"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_content_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/id_text_input_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:hintTextAppearance="@style/InputTextFloatingStyle"
+                        app:passwordToggleEnabled="true">
+
+                        <EditText
+                            android:id="@+id/id_et_input_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/passwords"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="35dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/InputTextFloatingStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="-3dp"
+                            android:layout_marginTop="-2dp"
+                            android:background="@null"
+                            android:includeFontPadding="false"
+                            android:text="" />
+
+                        <Button
+                            android:id="@+id/id_txt_forget_pwd"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:focusable="false"
+                            android:gravity="right|center"
+                            android:text="@string/forget_password"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_size_hint" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.4" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6" />
+
+                    <com.flyco.roundview.RoundTextView
+                        android:id="@+id/rtv_login"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/log_on"
+                        android:textColor="@color/black"
+                        app:rv_backgroundColor="@color/white"
+                        app:rv_cornerRadius="@dimen/round_view_radius" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6" />
+
+                    <com.flyco.roundview.RoundTextView
+                        android:id="@+id/rtv_tourist"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.00"
+                        android:gravity="center"
+                        android:text="@string/look_around"
+                        android:textColor="@color/white"
+                        app:rv_backgroundColor="@color/dark_button"
+                        app:rv_cornerRadius="@dimen/round_view_radius" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7" />
+
+                    <Button
+                        android:id="@+id/id_btn_register"
+                        style="@style/normal_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:text="@string/register"
+                        android:textColor="@color/black" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/vMasker"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#e0000000"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,0 +1,131 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="120dp"
+    android:padding="5dp"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="horizontal"
+
+            >
+
+            <LinearLayout
+                android:layout_width="@dimen/dp_zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/id_txt_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/light_green"
+                        android:text="复诊" />
+
+                    <ImageView
+                        android:id="@+id/id_image_avatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="3dp"
+                        android:paddingRight="8dp"
+                        android:src="@drawable/man" />
+
+                    <Button
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignBottom="@id/id_image_avatar"
+                        android:layout_alignRight="@id/id_image_avatar"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginRight="3dp"
+                        android:background="@drawable/shape_oval_button_light_blue"
+                        android:text="30"
+                        android:focusable="false"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/dp_zero"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/id_txt_date"
+                        android:layout_width="@dimen/dp_zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/patient_info_date" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/id_txt_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/adv_chs_med_fragment_margin_top"
+                    android:text="@string/case_describe" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/id_txt_doctor"
+                        android:layout_width="@dimen/dp_zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="17sp"
+                        android:gravity="bottom"
+                        android:text="王大志" />
+
+                    <TextView
+                        android:layout_width="@dimen/dp_zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left|bottom"
+                        android:text="医生" />
+
+                    <TextView
+                        android:layout_width="@dimen/dp_zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center|bottom"
+                        android:text="@string/medicine_guide" />
+
+                    <TextView
+                        android:layout_width="@dimen/dp_zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left|bottom"
+                        android:text="第10天" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

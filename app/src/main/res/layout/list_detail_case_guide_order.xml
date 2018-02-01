@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="10dp"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.nibatech.ecmd.view.HeadView
+                android:id="@+id/id_image_avatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="5dp"
+                android:layout_gravity="center_vertical" />
+
+            <LinearLayout
+                android:layout_width="@dimen/dp_zero"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@drawable/shape_button_circle_grey"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/id_txt_expectation"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical" />
+
+                    <TextView
+                        android:id="@+id/id_txt_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_can_click_arrow"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text=">"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="8dp" />
+</LinearLayout>

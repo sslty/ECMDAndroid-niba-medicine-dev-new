@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nibatech.ecmd">
+
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- IM云通信相关权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 阿里移动推送相关权限 -->
+    <!-- Android 6.0版本可去除，用于选举信息（通道复用）的同步 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 选举使用，当应用有删除或者更新时需要重新选举，复用推送通道 -->
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <!-- 补偿通道GCM使用，不使用可去除 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 云推送小米通道相关权限 -->
+    <permission
+        android:name="com.nibatech.ecmd.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signatureOrSystem" />
+
+    <uses-permission android:name="com.nibatech.ecmd.permission.MIPUSH_RECEIVE" />
+
+    <application
+        android:name=".application.ECMDApplication"
+        android:icon="@drawable/launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 阿里云消息推送服务 -->
+        <meta-data
+            android:name="com.alibaba.app.appkey"
+            android:value="23445732" /> <!-- 请填写你自己的- appKey -->
+        <meta-data
+            android:name="com.alibaba.app.appsecret"
+            android:value="6d67d917fce4c9e7f4795164a806cdd0" /> <!-- 请填写你自己的appSecret -->
+        <!-- 通道保持服务 -->
+        <service
+            android:name="com.alibaba.sdk.android.push.ChannelService"
+            android:exported="true"
+            android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.SERVICE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.PING_V4" />
+
+                <category android:name="taobao" />
+            </intent-filter>
+        </service>
+        <!-- 消息接收服务 -->
+        <service
+            android:name="com.alibaba.sdk.android.push.MsgService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.push.NOTIFY_ACTION" />
+            </intent-filter>
+        </service>
+        <!-- 消息接收增强服务（可提高通知/消息达到率） -->
+        <service
+            android:name="com.alibaba.sdk.android.push.channel.TaobaoRecvService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="org.android.agoo.client.MessageReceiverService" />
+            </intent-filter>
+        </service>
+        <!-- 消息接收监听器 （用户可自主扩展） -->
+        <receiver android:name="com.alibaba.sdk.android.push.MessageReceiver">
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.COMMAND" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.taobao.intent.action.COMMAND" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <!-- 小米通道官方配置 -->
+        <service
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService"
+            android:enabled="true" />
+
+        <receiver
+            android:name="com.alibaba.sdk.android.push.MiPushBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <!-- 华为通道官方配置 -->
+        <receiver android:name="com.alibaba.sdk.android.push.HuaWeiReceiver">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+                <action android:name="com.huawei.intent.action.PUSH" />
+                <action android:name="com.huawei.intent.action.PUSH_STATE" />
+            </intent-filter>
+        </receiver>
+        <!-- 腾讯IM聊天消息服务 -->
+        <!--
+           ATTENTION: This was auto-generated to add Google Play services to your project for
+           App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <!-- IM云通信相关消息服务 -->
+        <!-- 消息收发service -->
+        <service
+            android:name="com.tencent.qalsdk.service.QalService"
+            android:exported="false"
+            android:process=":QALSERVICE" />
+        <!-- 消息收发辅助service -->
+        <service
+            android:name="com.tencent.qalsdk.service.QalAssistService"
+            android:exported="false"
+            android:process=":QALSERVICE" />
+        <!-- 离线消息广播接收器 -->
+        <receiver
+            android:name="com.tencent.qalsdk.QALBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tencent.qalsdk.broadcast.qal" />
+            </intent-filter>
+        </receiver>
+        <!-- 系统消息广播接收器 -->
+        <receiver
+            android:name="com.tencent.qalsdk.core.NetConnInfoCenter"
+            android:process=":QALSERVICE">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <!-- 阿里云消息推送服务结束 -->
+
+        <activity
+            android:name=".activity.homepage.DoctorHomePageActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.register.profile.CreateByDoctorActivity" />
+        <activity android:name=".activity.register.profile.UpdateByPatientActivity" />
+        <activity
+            android:name=".activity.chat.ChatDoctorCustomActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.chat.supply.ChatDoctorSupplyEditActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.chat.guide.ChatGuideEditActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.guide.DoctorGuideActivity" />
+        <activity android:name=".activity.excellent.ExcellentListActivity" />
+        <activity android:name=".activity.guide.details.DoctorCaseDetailsActivity" />
+        <activity android:name=".activity.excellent.introduce.IntroducePrescriptionActivity" />
+        <activity android:name=".activity.advantage.AdvantageDoctorListActivity" />
+        <activity android:name=".activity.advantage.details.CaseDetailsActivity" />
+        <activity android:name=".activity.mine.MoneyActivity" />
+        <activity android:name=".activity.mine.JoinActivity" />
+        <activity android:name=".activity.mine.follow.FollowedActivity" />
+        <activity android:name=".activity.mine.follow.FollowerViewPageActivity" />
+        <activity android:name=".activity.mine.ProfileActivity" />
+        <activity android:name=".activity.mine.HistoryActivity" />
+        <activity
+            android:name=".activity.mine.FeedBackActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.mine.ContactActivity" />
+        <activity android:name=".activity.mine.SettingActivity" />
+        <activity android:name=".activity.prize.PrizeCurrentActivity" />
+        <activity android:name=".activity.mien.MienDoctorActivity" />
+        <activity android:name=".activity.news.NewsListActivity" />
+        <activity
+            android:name=".activity.floatactionbutton.mien.PublishArticleActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".activity.prize.round.CurrentRoundActivity" />
+        <activity android:name=".activity.code.CodeShowValueActivity" />
+        <activity android:name=".activity.prize.round.HistoryRoundActivity" />
+        <activity android:name=".activity.news.NewsArticleActivity" />
+        <activity
+            android:name=".activity.chat.ChatNormalActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".activity.message.MessageActivity" />
+        <activity android:name=".activity.guide.PatientGuideActivity" />
+        <activity android:name=".activity.mine.VersionActivity" />
+        <activity android:name=".activity.mypatient.MyPatientRecordItemActivity" />
+        <activity android:name=".activity.sea.SeaActivity" />
+        <activity android:name=".activity.advantage.AdvantageListActivity" />
+        <activity android:name=".activity.guide.introduce.GuideIntroduceDoctorActivity" />
+        <activity
+            android:name=".activity.photo.PhotoViewActivity"
+            android:configChanges="mcc|mnc|keyboard|keyboardHidden|navigation|orientation|screenSize|fontScale" />
+        <activity android:name=".activity.sea.SeaDetailActivity" />
+        <activity
+            android:name=".activity.mine.ModifyProfileActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity android:name=".activity.photo.PhotoModifyActivity" />
+        <activity
+            android:name=".activity.floatactionbutton.join.JoinExcellentActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".activity.floatactionbutton.join.JoinAdvantageActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".activity.mien.MomentArticleActivity" />
+        <activity android:name=".activity.mien.MienArticleActivity" />
+        <activity android:name=".activity.mien.MienPatientActivity" />
+        <activity android:name=".activity.photo.PhotoShowActivity" />
+        <activity android:name=".activity.photo.PhotoEditActivity" />
+        <activity android:name=".activity.photo.BasePhotoActivity" />
+        <activity
+            android:name=".activity.floatactionbutton.guide.PatientSubmitOrderActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.guide.details.PatientCaseDetailsActivity" />
+        <activity android:name=".activity.guide.TouristGuideActivity" />
+        <activity android:name=".activity.guide.details.TouristCaseDetailsActivity" />
+        <activity
+            android:name=".activity.chat.ChatPatientCustomActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.chat.supply.ChatPatientSupplyEditActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".activity.register.profile.UpdateDoctorActivity" />
+        <activity android:name=".activity.register.profile.UpdatePatientActivity" />
+        <activity android:name=".activity.chat.guide.ChatGuideViewActivity" />
+        <activity android:name=".activity.chat.details.ChatCaseDetailsViewActivity" />
+        <activity android:name=".activity.chat.supply.ChatSupplyViewActivity" />
+        <activity
+            android:name=".activity.floatactionbutton.mypatient.DoctorDiagnoseActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.floatactionbutton.prize.DoctorEffectActivity" />
+        <activity android:name=".activity.prize.AnswerResultActivity" />
+        <activity android:name=".activity.base.SlidingTabActivity" />
+        <activity android:name=".activity.homepage.PatientHomePageActivity" />
+        <activity android:name=".activity.homepage.TouristHomePageActivity" />
+        <activity android:name=".activity.advantage.introduce.DoctorIntroduceActivity" />
+        <activity android:name=".activity.advantage.indication.IntroduceIndicationActivity" />
+        <activity android:name=".activity.floatactionbutton.guide.DoctorTakeOrderActivity" />
+
+        <!-- 注册协议 -->
+        <activity android:name=".activity.register.ProtocolActivity" />
+        <!-- 选择身份 -->
+        <activity android:name=".activity.register.SelectIdentityActivity" />
+        <!-- 忘记密码 -->
+        <activity
+            android:name=".activity.register.password.ForgetPasswordActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <!-- 修改密码 -->
+        <activity
+            android:name=".activity.register.password.ModifyPasswordActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <!-- 注册-输入验证码 -->
+        <activity
+            android:name=".activity.register.register.RegisterPhoneActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <!-- 注册-输入密码 -->
+        <activity
+            android:name=".activity.register.register.RegisterPasswordActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <!-- 选择身份 -->
+        <activity android:name=".activity.register.register.IdentityActivity" />
+        <!-- 注册-回答问题 -->
+        <activity android:name=".activity.register.register.ExamActivity" />
+        <!-- 注册-补充资料-医生 -->
+        <activity
+            android:name=".activity.register.profile.CreateDoctorActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <!-- 注册-补充资料-患者 -->
+        <activity
+            android:name=".activity.register.profile.CreatePatientActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <!-- 补充资料-患者 -->
+        <activity android:name=".activity.register.profile.UpdateByDoctorActivity" />
+        <!-- 患者-输入识别码 -->
+        <activity
+            android:name=".activity.code.CodeInputActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <!-- 我的患者-病例详情 -->
+        <activity android:name=".activity.mypatient.MyPatientCaseDetailsActivity" />
+        <!-- 风采-更多评论 -->
+        <activity android:name=".activity.mien.MoreCommentsActivity" />
+        <!-- 好友-聊天 -->
+        <activity android:name=".activity.chat.friends.ChatFriendsActivity" />
+        <!-- 结束中医指导 -->
+        <activity android:name=".activity.chat.guide.ChatEndGuideActivity" />
+        <!-- 微信-确认支付 -->
+        <activity android:name=".activity.guide.pay.PaymentActivity" />
+        <!-- 微信-订单支付界面 -->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <!-- 微信-订单支付完成后的界面 -->
+        <activity android:name=".activity.register.RegisterPaddingActivity" />
+        <!-- 聊天界面 -->
+        <activity android:name=".activity.chat.ChatPaddingActivity" />
+        <!-- 医生-个人主页 -->
+        <activity android:name=".activity.personal.DoctorPersonalActivity" />
+        <!-- 我的-个人资料-已认证界面 -->
+        <activity android:name=".activity.mine.certify.CertifiedActivity" />
+        <!-- 我的-个人资料-未认证界面 -->
+        <activity
+            android:name=".activity.mine.certify.UnCertifyActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".activity.search.SearchListActivity" />
+        <activity android:name=".activity.web.WebActivity" />
+    </application>
+
+</manifest>

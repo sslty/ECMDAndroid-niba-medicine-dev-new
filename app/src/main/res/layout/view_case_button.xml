@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/ic_spitview_horizontal" />
+
+    <Button
+        android:id="@+id/btn_illness"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_oval_stroke"
+        android:text="基本病情\n0000.00.00"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <GridView
+        android:id="@+id/gv_apps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:horizontalSpacing="10dip"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="4"
+        android:verticalSpacing="30dip" />
+</LinearLayout>

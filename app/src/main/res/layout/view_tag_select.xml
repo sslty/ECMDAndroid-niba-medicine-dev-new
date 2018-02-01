@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/tv_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/normal_bg"
+        android:text="Helloworld"
+        android:textColor="#A4A4A4" />
+
+    <ImageView
+        android:id="@+id/iv_tag"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:visibility="invisible"
+        android:layout_alignRight="@+id/tv_tag"
+        android:background="@drawable/tag_delete" />
+
+
+</RelativeLayout>

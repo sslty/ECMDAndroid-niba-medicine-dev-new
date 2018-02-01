@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.guide.details.DoctorCaseDetailsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.1" />
+
+            <LinearLayout
+                android:id="@+id/ll_head_picture"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2">
+
+                    <com.nibatech.ecmd.view.HeadView
+                        android:id="@+id/id_image_avatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:transitionName="@string/transition" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3" />
+
+                <LinearLayout
+                    android:id="@+id/ll_state"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:visibility="invisible">
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        style="@style/normal_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="治愈"
+                        android:textAlignment="center"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <ExpandableListView
+                android:id="@+id/id_expandable_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_zero"
+                android:layout_marginTop="@dimen/patient_info_fragment_margin_top"
+                android:layout_weight="3"
+                android:divider="@null"
+                android:visibility="invisible"
+                android:listSelector="@android:color/transparent" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</FrameLayout>

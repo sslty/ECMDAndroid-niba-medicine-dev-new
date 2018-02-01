@@ -1,0 +1,93 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_zero"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.nibatech.ecmd.view.HeadItemView
+                android:id="@+id/headItemView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"/>
+
+            <TextView
+                android:id="@+id/id_txt_following"
+                style="@style/normal_button"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:padding="10dp"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_zero"
+            android:layout_weight="0.2">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="@color/grey_line" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_zero"
+            android:layout_weight="0.8"
+            android:gravity="center">
+
+            <Space
+                android:layout_width="@dimen/dp_zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5" />
+
+            <TextView
+                android:layout_width="@dimen/dp_zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/shape_button_circle_blue_temp"
+                android:gravity="center"
+                android:lines="2"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+
+            <Space
+                android:layout_width="@dimen/dp_zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5" />
+
+        </LinearLayout>
+
+        <com.nibatech.ecmd.view.CustomPieChartView
+            android:id="@+id/pie_chart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_zero"
+            android:layout_weight="1.5" />
+    </LinearLayout>
+
+
+</FrameLayout>

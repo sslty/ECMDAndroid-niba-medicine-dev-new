@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="2dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_head"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_sig"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@+id/civ_head"
+        android:layout_alignRight="@+id/civ_head"
+        android:background="@drawable/shape_oval_button_normal_green"
+        android:clickable="false"
+        android:focusable="false"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_tip"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignRight="@+id/civ_head"
+        android:layout_alignTop="@+id/civ_head"
+        android:background="@drawable/shape_oval_button_red"
+        android:clickable="false"
+        android:focusable="false"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+</RelativeLayout>
+

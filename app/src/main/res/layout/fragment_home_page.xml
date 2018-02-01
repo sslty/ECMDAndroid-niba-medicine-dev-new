@@ -1,0 +1,149 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.stx.xhb.mylibrary.XBanner
+            android:id="@+id/xbanner_home"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            app:AutoPlayTime="3000"
+            app:pointNormal="@drawable/shape_point_normal"
+            app:pointSelect="@drawable/shape_point_red"
+            app:pointsContainerBackground="#ae000000"
+            app:pointsPosition="RIGHT"
+            app:tipTextSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_search"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shape_oval_background"
+            android:orientation="horizontal"
+            android:paddingLeft="18dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/search" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="搜索" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/id_txt_guide"
+                style="@style/text_view_img_item"
+                android:drawableTop="@drawable/home_guide"
+                android:text="@string/medicine_guide" />
+
+            <TextView
+                android:id="@+id/id_txt_mien"
+                style="@style/text_view_img_item"
+                android:drawableTop="@drawable/home_chinese_presence"
+                android:text="@string/chinese_medicine_presence" />
+
+            <TextView
+                android:id="@+id/id_txt_news"
+                style="@style/text_view_img_item"
+                android:drawableTop="@drawable/home_news"
+                android:text="@string/platform_dynamics" />
+
+            <TextView
+                android:id="@+id/id_txt_prize"
+                style="@style/text_view_img_item"
+                android:drawableTop="@drawable/home_sea"
+                android:text="@string/sea" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:id="@+id/tv_kouchou"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/web_kouchou"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="中医治口臭，疗效好" />
+
+            <TextView
+                android:id="@+id/tv_shimian"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/web_shimian"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="对症下药，治疗失眠就这么简单" />
+
+            <TextView
+                android:id="@+id/tv_shanghai"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/web_shanghai"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="最伤害女性身体的五种早餐！你还在吃吗？" />
+
+            <TextView
+                android:id="@+id/tv_hejiu"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/web_hejiu"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="喝酒也超养生的，你以为我骗你啊" />
+
+            <TextView
+                android:id="@+id/tv_fangai"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/web_fangai"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="吃不起大蒜，我们应该如何防癌？" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

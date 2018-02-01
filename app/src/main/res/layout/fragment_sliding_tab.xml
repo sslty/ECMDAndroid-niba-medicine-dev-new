@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/normal_button"
+            android:gravity="center">
+
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/tl_top"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:visibility="gone"
+                tl:tl_divider_color="@color/grey_line"
+                tl:tl_divider_padding="13dp"
+                tl:tl_divider_width="1dp"
+                tl:tl_indicator_color="@color/yellow"
+                tl:tl_indicator_height="3dp"
+                tl:tl_indicator_margin_bottom="1dp"
+                tl:tl_indicator_width_equal_title="false"
+                tl:tl_tab_padding="22dp"
+                tl:tl_tab_space_equal="false"
+                tl:tl_textSelectColor="#ffffff"
+                tl:tl_textUnselectColor="#ddffffff"
+                tl:tl_underline_color="@color/grey_line"
+                tl:tl_underline_height="1dp" />
+
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_float"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/plus"
+        android:visibility="gone"
+        tl:backgroundTint="@color/normal_button" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <com.nibatech.ecmd.view.BottomButton
+        android:id="@+id/bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
+</RelativeLayout>

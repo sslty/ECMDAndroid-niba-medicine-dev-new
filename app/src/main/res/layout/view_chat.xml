@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_chat"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone">
+
+    <com.nibatech.ecmd.view.CustomEmoticonsKeyBoard
+        android:id="@+id/ek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/lv_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/lly"
+            android:layout_alignParentTop="true"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent"
+            android:transcriptMode="normal" />
+    </com.nibatech.ecmd.view.CustomEmoticonsKeyBoard>
+</RelativeLayout>

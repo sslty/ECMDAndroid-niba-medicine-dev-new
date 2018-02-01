@@ -1,0 +1,76 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout style="@style/linear_layout_width_weight_space_item" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/edit_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_oval_stroke"
+                        android:hint="文章标题"
+                        android:padding="5dp" />
+
+
+                    <EditText
+                        android:id="@+id/edit_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_oval_stroke"
+                        android:gravity="top"
+                        android:hint="文章内容"
+                        android:minHeight="150dp"
+                        android:padding="5dp" />
+
+                    <com.nibatech.ecmd.view.AutoGridImageEdit
+                        android:id="@+id/auto_image_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:maxImageNumber="9"
+                        app:numColumns="3" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <Button
+                android:id="@+id/btn_publish"
+                style="@style/normal_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="5dp"
+                android:text="发表" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_layout_width_weight_space_item" />
+    </LinearLayout>
+</FrameLayout>

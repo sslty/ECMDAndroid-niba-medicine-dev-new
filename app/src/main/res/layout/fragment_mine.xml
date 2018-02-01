@@ -1,0 +1,207 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp">
+
+                <com.nibatech.ecmd.view.HeadView
+                    android:id="@+id/image_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/id_txt_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="我的名字"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/layout_my_money"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="财富"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="积分"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_join"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:canNav="true"
+                app:title="我的参与" />
+
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_followed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:canNav="true"
+                app:title="我的关注" />
+
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_follower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:canNav="true"
+                app:title="关注我的" />
+
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:canNav="true"
+                app:title="个人资料" />
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:canNav="true"
+                app:title="历史数据" />
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:canNav="true"
+                app:title="反馈意见" />
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:canNav="true"
+                app:title="联系我们" />
+
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:canNav="true"
+                app:title="设置" />
+
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:canNav="true"
+                app:title="版本更新" />
+
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:isBottom="true"
+                app:title="退出登录"
+                app:titleColor="@color/red" />
+        </LinearLayout>
+
+
+    </ScrollView>
+</FrameLayout>

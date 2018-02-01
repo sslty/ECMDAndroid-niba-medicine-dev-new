@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_main_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_class"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:text="已上传的证件" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_oval_stroke"
+                android:minHeight="80dp"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <com.nibatech.ecmd.view.AutoGridImageView
+                        android:id="@+id/auto_grid_image_container_physician"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:maxImageNumber="1"
+                        app:numColumns="1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="执业医师证" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:visibility="invisible">
+
+                    <com.nibatech.ecmd.view.AutoGridImageView
+                        android:id="@+id/auto_grid_image_container_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:maxImageNumber="1"
+                        app:numColumns="1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="职称证" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_work"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:visibility="invisible">
+
+                    <com.nibatech.ecmd.view.AutoGridImageView
+                        android:id="@+id/auto_grid_image_container_work"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:maxImageNumber="1"
+                        app:numColumns="1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="工作证/胸牌" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_others"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:text="能证明行医资格的其他证件" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_oval_stroke"
+                    android:minHeight="80dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="10dp">
+
+                    <com.nibatech.ecmd.view.AutoGridImageView
+                        android:id="@+id/auto_grid_image_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:maxImageNumber="9"
+                        app:numColumns="3" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_re_certify"
+            style="@style/normal_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="重新认证" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

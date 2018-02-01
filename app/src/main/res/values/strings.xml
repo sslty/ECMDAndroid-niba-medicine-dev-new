@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">中医世家</string>
+
+    <!--Register-->
+    <string name="phone">手机号</string>
+    <string name="passwords">密码</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="log_on">登录</string>
+    <string name="look_around">随便逛逛</string>
+    <string name="register">注册</string>
+
+    <string name="input_phone">请输入手机号码</string>
+    <string name="send_code">发送验证码</string>
+    <string name="message_code">请填写收到的短信验证码</string>
+    <string name="reset_password">重设登录密码</string>
+    <string name="set_password">设置登录密码</string>
+    <string name="input_password">输入密码</string>
+    <string name="input_again">再次输入密码</string>
+    <string name="ok">确定</string>
+    <string name="forget_password_title">忘记密码</string>
+
+    <string name="i_am_a_doctor">我是医生</string>
+    <string name="i_am_user">我是用户</string>
+    <string name="notice">注:请最少设置6位密码</string>
+    <string name="i_agree">我同意</string>
+    <string name="escape_clause">中医世家平台注册协议</string>
+    <string name="clause">注册协议</string>
+
+    <string name="input_name">请输入姓名</string>
+    <string name="input_age">请输入年龄</string>
+    <string name="input_profession">请输入专业</string>
+    <string name="select_city">请选择城市</string>
+    <string name="input_company">请输入单位</string>
+    <string name="save">保存</string>
+    <string name="skip">跳过</string>
+    <string name="man">男</string>
+    <string name="female">女</string>
+    <string name="sex">性别</string>
+    <string name="information">基本资料</string>
+    <string name="update_profile">补充资料</string>
+    <string name="select">选择</string>
+    <string name="following">关注</string>
+    <string name="cancel_following">取消关注</string>
+
+
+    <!--DoctorHomePageActivity-->
+    <string name="home_page">首页</string>
+    <string name="friends">好友</string>
+    <string name="id_code">识别码</string>
+    <string name="patient">患者</string>
+    <string name="mine">我的</string>
+    <string name="doctors">医生</string>
+
+    <string name="fans_patient">粉丝患者</string>
+    <string name="medicine_guide">中医指导</string>
+    <string name="case_analysis">有奖分析</string>
+    <string name="chinese_medicine_presence">中医风采</string>
+    <string name="platform_dynamics">平台动态</string>
+    <string name="sea">方海寻珠</string>
+    <string name="more">更多内容</string>
+    <string name="base_information">基本信息</string>
+
+
+    <!--SearchableActivity-->
+    <string name="searching">搜索</string>
+    <string name="please_input_keyword">请输入关键字</string>
+    <string name="temp">热门: 高血压 心脏病 感冒 发烧</string>
+
+    <!--HomeFragment-->
+
+
+    <!--ExcellentTouristFragment-->
+    <string name="curative_effect">> 按疗效</string>
+    <string name="indication">> 按适应症</string>
+    <string name="type">> 按类型</string>
+    <string name="varicose_veins">静脉曲张方剂</string>
+    <string name="year_month_date">2016.8.10T</string>
+    <string name="describe">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+        描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描</string>
+    <string name="platform_prescription">平台方剂</string>
+
+    <!--AdvantageFragment-->
+    <string name="selective_indication">选择适应症</string>
+    <string name="cardiovascular_department">心血管科</string>
+    <string name="hypertensive_type_1">高血压1型</string>
+    <string name="hypertensive_type_2">高血压2型</string>
+    <string name="high_blood_lipid">高血脂</string>
+    <string name="coronary_heart_disease">冠心病</string>
+    <string name="gynaecology">妇科</string>
+    <string name="irregular_menstruation">月经不调</string>
+    <string name="pelvic_infection">盆腔炎</string>
+    <string name="digestive_department">消化科</string>
+    <string name="gastritis">胃炎</string>
+    <string name="enteritis">肠炎</string>
+    <string name="gastroenteritis">肠胃炎</string>
+    <string name="hypertensive_type_1_1">高血压1型 98%</string>
+    <string name="high_blood_lipid_1">高血脂1型 90%</string>
+    <string name="coronary_heart_disease_1">冠心病 85%</string>
+    <string name="introduce">介绍</string>
+    <string name="cases">病例</string>
+    <string name="introduction_of_prescriptions">方剂介绍</string>
+    <string name="prescription_thoughts">方剂思路：肝主筋，肝气郁结，耗血使筋脉失养而屈曲或肿块，可用疏肝养血治疗。
+        肝气郁结，疏泄不畅，则卫阳敷布不利，体表筋脉易感受寒邪，寒邪收敛凝滞，可使筋脉结块、屈曲；肝气郁结，
+        可克脾土，使脾的升降功能失调，而中气下陷，下肢筋脉不能固摄而曲张，湿气下流而肢体肿胀。都无不与肝主筋有关。
+        临床辨证论治应全面加以考虑。治则治法：补气养血、疏肝活血、祛湿。方药组成：略</string>
+
+    <!--PrescriptionCaseListFragment-->
+    <string name="recovery">痊愈</string>
+    <string name="rx_sex">男</string>
+    <string name="rx_age">35岁</string>
+    <string name="rx_date">2016.12.12</string>
+
+    <!--PatientInfoFragment-->
+    <string name="code_number">CD号: P234234</string>
+    <string name="first_diagnosis">首诊</string>
+    <string name="laboratory_sheet_1">化验单1</string>
+    <string name="laboratory_sheet_2">化验单2</string>
+    <string name="frontal_tongue">正面舌照</string>
+    <string name="first_visit">》第一次复诊</string>
+    <string name="patient_info_date">2016.02.02</string>
+    <string name="patient_name">患者姓名</string>
+    <string name="symptom_description">症状描述症状描述症状描述症状描述症状描述症状描述症状描述症状描述
+        症状描述症状症状</string>
+
+    <!--IntroduceIndicationFragment-->
+    <string name="hypertension">> 高血压</string>
+    <string name="by_doctor_class">> 按医生类别</string>
+    <string name="by_region">> 按地区</string>
+    <string name="doctor_1">医生1</string>
+    <string name="asthma">哮喘,高血压,心脏病</string>
+    <string name="hospital">医院</string>
+    <string name="healing_rate">显愈率: 90%</string>
+    <string name="indication_project">适应症方案</string>
+
+    <!--IntroduceDoctorListFragment-->
+    <string name="follow">关注</string>
+    <string name="hospital_introduction">医院介绍:</string>
+
+    <!--RecoveryFragment-->
+    <string name="put_up">挂单</string>
+    <string name="seeking_master">求高手</string>
+    <string name="ongoing">进行中</string>
+    <string name="by_type">> 按类型</string>
+    <string name="according_to_department">> 按科室</string>
+    <string name="keyword">> 按关键字</string>
+    <string name="confirmed">已确诊</string>
+    <string name="countdown">倒计时: %s</string>
+    <string name="already_involved">%s 位医生已经参与</string>
+    <string name="price_range">价格区间: %1$s-%2$s元</string>
+    <string name="price_every_time">费用: %s元/次</string>
+    <string name="consultation_fee">￥ %s元/次</string>
+    <string name="publish_day">已发布： %s天</string>
+    <string name="doctor_name">%s 医生</string>
+    <string name="guide_time">中医指导第 %s天</string>
+    <string name="guide_expenses">中医指导费用: %s元</string>
+    <string name="browse_comment">浏览: %1$s  评论: %2$s</string>
+    <!--PatientCaseDetailsActivity-->
+    <string name="case_details">病例详情</string>
+    <string name="diagnose_details">诊断详情</string>
+    <string name="case_describe">具体描述具体描述具体描述具体描述具体描述具体描述具体描述具体描述具体描述具体
+        具体描述具体描述具体描述具体描述具体描述具体描述具体描述具体描述描述</string>
+
+    <!--PatientActivity-->
+    <string name="my_patient">我的患者</string>
+    <string name="connected_list">已接单</string>
+    <string name="been_completed">已完成</string>
+    <string name="participating">参与的</string>
+    <string name="to_visit">待复诊</string>
+
+
+    <!--ChatDoctorCustomActivity-->
+    <string name="recovery_guide_chat">中医指导-对话</string>
+    <string name="send"> + </string>
+
+    <!--detailCase-->
+    <string name="first_re_guide">  > 第一次复诊</string>
+    <string name="second_re_guide">  > 第二次复诊</string>
+
+    <string name="normal_patient">粉丝患者</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="join_excellent">"如果你在中医临床实践中，总结有疗效很好的固定方剂，请在下面的框内简单的进行描述；
+我们工作人员会与你进行联系，一起共同努力开发你的技术并转化成经济效益。"</string>
+    <string name="join_advantage">"如果在中医临床实践中，你特别擅长治疗某类疾病，请在下面的框内填写简单的情况；
+我们工作人员会与你进行联系，一起共同努力，让更多的患者知道你，并可以得到你的治疗。"</string>
+
+    <string name="doctor_protocol">
+            平台注册医生协议
+    </string>
+
+    <string name="user_protocol">
+        平台注册用户协议
+    </string>
+    <!-- Strings related to login -->
+    <string name="error_invalid_phone_cd">手机号或CD号无效</string>
+    <string name="error_invalid_password">无效密码</string>
+    <string name="error_incorrect_password">密码不正确</string>
+    <string name="error_field_required">不能为空</string>
+    <string name="error_identity_code">验证码错误</string>
+    <string name="error_max_length">请至少输入6位密码</string>
+    <string name="error_passwords_match">两次密码不一致,请重新输入</string>
+    <string name="error_invalid_phone">手机号无效</string>
+    <string name="error_invalid_age">年龄应该在1&#8211;100岁之间</string>
+
+    <!-- 版本信息 -->
+    <string name="version_information">
+    </string>
+
+
+    <!-- time -->
+    <string name="time_yesterday">昨天</string>
+    <string name="time_day">日</string>
+    <string name="time_month">月</string>
+    <string name="time_year">年</string>
+    <!--transition-->
+    <string name="transition">Test Transition</string>
+
+</resources>

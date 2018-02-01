@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone"
+    android:background="@drawable/shape_dialog_circle">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <com.nibatech.ecmd.view.HeadItemView
+                    android:id="@+id/head_item_view"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_following"
+                style="@style/normal_button"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:text="关注" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="请您对本次康复指导做出评价" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <RadioButton
+                android:id="@+id/rb_recovery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radio_end_guide_selecter"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="治愈"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/shape_line"
+                android:button="@null"
+                android:clickable="false"
+                android:padding="10dp" />
+
+            <RadioButton
+                android:id="@+id/rb_excellence"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radio_end_guide_selecter"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="显效"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/shape_line"
+                android:button="@null"
+                android:clickable="false" />
+
+            <RadioButton
+                android:id="@+id/rb_valid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radio_end_guide_selecter"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="有效"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/shape_line"
+                android:button="@null"
+                android:clickable="false"
+                android:padding="10dp" />
+
+            <RadioButton
+                android:id="@+id/rb_invalid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radio_end_guide_selecter"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="无效"
+                android:textSize="12sp" />
+
+        </RadioGroup>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_back"
+                    style="@style/grey_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="返回" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_ok"
+                    style="@style/normal_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="提交" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,55 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="冬春之交 皮肤容易过敏该如何解决？"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2017-02-14 10:46来源：99健康网" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/launcher" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="　　肝血虚的症状常因脾肾亏虚，或慢性病耗伤肝血，或失血过多所致。是肝血不足所产生的病证，其主要特点是肝血的调节功能失常及相关脏器失养。那么肝血虚的症状有哪些?吃什么食物能调理?
+　　肝血虚的症状
+　　针对于肝血虚的症状，肝病专家指出，肝血虚是常见的肝脏不好的症状，在临床观察中发现，肝血虚的症状常以头晕眼花，视力减退，或夜盲，或肢体麻木为主，肝血虚的症状常见的有以下几个方面：
+　　1、妇女肝血虚的症状有月经量少、色淡，甚则闭经等。
+　　2、肝血虚的症状以头晕耳鸣，双目干涩，视物昏花甚或夜盲，面白无华，爪甲不荣，夜寐多梦，舌淡苔白，脉虚弱为主。
+　　3、肝血久虚，血不养筋，可兼见肢体麻木，关节拘急不利，手足震颤等。" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/launcher" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="　　肝血虚吃什么食物好
+　　1、桂圆肉
+　　桂圆肉益心脾、补血气。可用桂圆和红枣一起煮粥来补益。
+　　2、桑葚干
+　　水果中“补血果”，在晒制过程中，最有利于一些稳定营养素的保留，如铁、锌、锰、蛋白质、抗氧化物质等。
+　　3、红枣
+　　红枣味甘性温、脾胃经，有补中益气，养血安神，有补气血、强筋骨、缓和药性的功能。"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

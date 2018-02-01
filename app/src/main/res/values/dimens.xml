@@ -1,0 +1,101 @@
+<resources>
+    <!--E-C-M-D-->
+    <dimen name="toolbar_font_size">20sp</dimen>
+    <dimen name="round_view_radius">7dp</dimen>
+
+    <dimen name="fragment_height">564dp</dimen>
+    <dimen name="navigation_bar_height">56dp</dimen>
+    <dimen name="layout_align_parent_right">8dp</dimen>
+    <dimen name="dp_zero">0dp</dimen>
+    <dimen name="activity_margin_left">40dp</dimen>
+    <dimen name="activity_margin_right">40dp</dimen>
+    <dimen name="activity_margin_top">40dp</dimen>
+    <dimen name="activity_margin_bottom">40dp</dimen>
+
+    <dimen name="fragment_margin_left">30dp</dimen>
+    <dimen name="fragment_margin_right">30dp</dimen>
+    <dimen name="fragment_margin_top">30dp</dimen>
+    <dimen name="fragment_margin_bottom">30dp</dimen>
+
+    <dimen name="list_view_margin_left">15dp</dimen>
+    <dimen name="list_view_margin_right">15dp</dimen>
+    <dimen name="list_view_margin_top">15dp</dimen>
+    <dimen name="list_view_margin_bottom">15dp</dimen>
+
+    <dimen name="image_avatar_age_height">25dp</dimen>
+    <dimen name="image_avatar_age_width">@dimen/image_avatar_age_height</dimen>
+    <dimen name="toolbar_image_width">32dp</dimen>
+
+
+    <!--全局都会使用的-->
+
+
+    <dimen name="font_size_hint">12sp</dimen>
+
+    <!--LoginTestActivity-->
+    <dimen name="login_margin_edit_top_first">30dp</dimen>
+    <dimen name="login_margin_edit_spacing">20dp</dimen>
+    <dimen name="login_margin_button_top_first">20dp</dimen>
+    <dimen name="login_margin_button_spacing">10dp</dimen>
+
+    <dimen name="login_font_size_logo">35sp</dimen>
+
+    <!--SearchableActivity-->
+    <dimen name="searchable_margin_left">20dp</dimen>
+    <dimen name="searchable_margin_right">20dp</dimen>
+    <dimen name="searchable_margin_top">20dp</dimen>
+    <dimen name="searchable_margin_bottom">20dp</dimen>
+
+    <!--DoctorHomePageActivity-->
+    <dimen name="home_page_fragment_height">480dp</dimen>
+
+    <!--HomeFragment-->
+    <dimen name="home_page_fragment_spacing">20dp</dimen>
+    <dimen name="home_page_fragment_margin_top">10dp</dimen>
+    <dimen name="home_page_fragment_margin_right">10dp</dimen>
+    <dimen name="home_page_fragment_margin_bottom">80dp</dimen>
+    <dimen name="home_page_fragment_margin_left">10dp</dimen>
+
+    <!--AdvChsRxActivity-->
+    <dimen name="adv_chs_med_fragment_height">500dp</dimen>
+
+    <!--AdvRx(Chs)Fragment-->
+    <dimen name="adv_chs_med_fragment_margin_bottom">40dp</dimen>
+    <dimen name="adv_chs_med_fragment_title_font_size">24sp</dimen>
+    <dimen name="adv_chs_med_fragment_spacing">10dp</dimen>
+    <dimen name="adv_chs_med_fragment_margin_top">20dp</dimen>
+    <dimen name="adv_chs_med_fragment_margin_right">10dp</dimen>
+    <dimen name="adv_chs_med_fragment_margin_left">10dp</dimen>
+
+    <!--RxIntro(Case)Fragment-->
+    <dimen name="rx_fragment_spacing">20dp</dimen>
+    <dimen name="rx_fragment_margin_top">20dp</dimen>
+    <dimen name="rx_fragment_margin_right">20dp</dimen>
+    <dimen name="rx_fragment_margin_bottom">80dp</dimen>
+    <dimen name="rx_fragment_margin_left">20dp</dimen>
+
+    <!--PatientInfoFragment-->
+    <dimen name="patient_info_fragment_spacing">20dp</dimen>
+    <dimen name="patient_info_fragment_margin_top">20dp</dimen>
+    <dimen name="patient_info_fragment_margin_right">20dp</dimen>
+    <dimen name="patient_info_fragment_margin_bottom">20dp</dimen>
+    <dimen name="patient_info_fragment_margin_left">20dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines-->
+    <dimen name="msg_time_margin">5dp</dimen>
+    <dimen name="head_margin">10dp</dimen>
+    <dimen name="msg_margin">50dp</dimen>
+    <dimen name="name_margin">10dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="button_margin">3dp</dimen>
+
+
+</resources>

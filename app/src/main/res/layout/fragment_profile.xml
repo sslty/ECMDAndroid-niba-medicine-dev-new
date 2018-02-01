@@ -1,0 +1,73 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:canNav="true"
+                app:title="姓名" />
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:canNav="true"
+                app:title="性别" />
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:canNav="true"
+                app:title="年龄" />
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:canNav="true"
+                app:title="头像" />
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:title="电话" />
+
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                app:title="擅长治疗" />
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:title="搜索标签" />
+
+            <com.nibatech.ecmd.view.LineControllerView
+                android:id="@+id/lcv_certify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:canNav="true"
+                app:title="医师证明" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
