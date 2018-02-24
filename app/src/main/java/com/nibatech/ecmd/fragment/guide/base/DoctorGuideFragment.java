@@ -20,27 +20,46 @@ import java.util.Map;
  */
 public class DoctorGuideFragment extends BaseGuideFragment {
 
+    private boolean ok;
+
     protected void getHttpData() {
-        CommonRequest.getUrlDataForPage(getIntentSelfUrl(), new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                getRefreshListSuccess(success.toString());
-            }
-        });
+//        CommonRequest.getUrlDataForPage(getIntentSelfUrl(), new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                getRefreshListSuccess(success.toString());
+//            }
+//        });
+        getRefreshListSuccess("");
     }
 
     public List<Map<String, Object>> getDataFromJson(String json) {
-        GuideOrderListBean guideOrderListBean = UIUtils.fromJson(json, GuideOrderListBean.class);
+//        GuideOrderListBean guideOrderListBean = UIUtils.fromJson(json, GuideOrderListBean.class);
+//        List<Map<String, Object>> list = new ArrayList<>();
+//        if (guideOrderListBean != null) {
+//            setNextUrl(guideOrderListBean.getPages().getNextUrl());
+//            list = setDataToList(guideOrderListBean.getOnlineTreatments());
+//        }
+
         List<Map<String, Object>> list = new ArrayList<>();
-        if (guideOrderListBean != null) {
-            setNextUrl(guideOrderListBean.getPages().getNextUrl());
-            list = setDataToList(guideOrderListBean.getOnlineTreatments());
+        int num;
+        if(ok){
+            num = 1;
+            ok =false;
+        }else {
+            num = 3;
+            ok =true;
         }
+        list = setDataToList(num);
         return list;
     }
 
+
     protected List<Map<String, Object>> setDataToList(List<OnlineTreatmentBean> onlineTreatments) {
         //父类，子类实现
+        return null;
+    }
+
+    protected List<Map<String,Object>> setDataToList(int num){
         return null;
     }
 }

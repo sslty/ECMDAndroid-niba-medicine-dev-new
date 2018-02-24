@@ -57,36 +57,38 @@ public class DoctorCaseDetailsActivity extends BaseActivity {
         setToolBarText("诊断详情");
         initView(getSelfView(R.layout.fragment_chat_case_details_view));
 //        addDefaultFragment(new DoctorCaseDetailsFragment());
-        setFABListener();
-        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.changebounds_with_arcmotion);
-        getWindow().setSharedElementEnterTransition(transition);
-        transition.addListener(new Transition.TransitionListener() {
-            @Override
-            public void onTransitionStart(Transition transition) {
-                getHttpData();
-
-            }
-
-            @Override
-            public void onTransitionEnd(Transition transition) {
-                expandableListView.setVisibility(View.VISIBLE);//1.当动画先结束了，提早让expandview显示空数据（其实也是什么也看不见），当网络数据来了再显示逻辑也对，2.当网络请求先结束，那直到动画结束，才显示数据，所以逻辑也对
-            }
-
-            @Override
-            public void onTransitionCancel(Transition transition) {
-
-            }
-
-            @Override
-            public void onTransitionPause(Transition transition) {
-
-            }
-
-            @Override
-            public void onTransitionResume(Transition transition) {
-
-            }
-        });
+//        setFABListener();
+//        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.changebounds_with_arcmotion);
+//        getWindow().setSharedElementEnterTransition(transition);
+//        transition.addListener(new Transition.TransitionListener() {
+//            @Override
+//            public void onTransitionStart(Transition transition) {
+//                getHttpData();
+//
+//            }
+//
+//            @Override
+//            public void onTransitionEnd(Transition transition) {
+//                expandableListView.setVisibility(View.VISIBLE);//1.当动画先结束了，提早让expandview显示空数据（其实也是什么也看不见），当网络数据来了再显示逻辑也对，2.当网络请求先结束，那直到动画结束，才显示数据，所以逻辑也对
+//            }
+//
+//            @Override
+//            public void onTransitionCancel(Transition transition) {
+//
+//            }
+//
+//            @Override
+//            public void onTransitionPause(Transition transition) {
+//
+//            }
+//
+//            @Override
+//            public void onTransitionResume(Transition transition) {
+//
+//            }
+//        });
+        setControllerData(null);
+        expandableListView.setVisibility(View.VISIBLE);
     }
 
     private void getHttpData() {
@@ -119,7 +121,8 @@ public class DoctorCaseDetailsActivity extends BaseActivity {
 
         headView.setHeadPhotoAndGender((String) list.get(0).get(DataKey.KEY_AVATAR),
                 (String) list.get(0).get(DataKey.KEY_GENDER))
-                .setSignature((Integer) list.get(0).get(DataKey.KEY_AGE));
+//                .setSignature((Integer) list.get(0).get(DataKey.KEY_AGE));
+                .setSignature(23);
         //适配器
         myAdapter = new MyAdapter();
         expandableListView.setAdapter(myAdapter);
@@ -133,32 +136,32 @@ public class DoctorCaseDetailsActivity extends BaseActivity {
         //年龄, 头像, 性别
         String mStrAvatar, mStrGender;
         Integer mIntAge;
-        if (chatPatientCaseListBean.getPatient() != null) {
-            mIntAge = chatPatientCaseListBean.getPatient().getAge();
-            mStrAvatar = chatPatientCaseListBean.getPatient().getAvatarUrl();
-            mStrGender = chatPatientCaseListBean.getPatient().getGender();
-        } else {
-            mIntAge = null;
-            mStrAvatar = null;
-            mStrGender = null;
-        }
+//        if (chatPatientCaseListBean.getPatient() != null) {
+//            mIntAge = chatPatientCaseListBean.getPatient().getAge();
+//            mStrAvatar = chatPatientCaseListBean.getPatient().getAvatarUrl();
+//            mStrGender = chatPatientCaseListBean.getPatient().getGender();
+//        } else {
+//            mIntAge = null;
+//            mStrAvatar = null;
+//            mStrGender = null;
+//        }
 
-        //更新时间
-        String mStrUpdateTime = chatPatientCaseListBean.getUpdatedTime();
-        //描述
-        String mStrDescription = chatPatientCaseListBean.getDescription();
-        //症状和特征
-        String mStrSymptom = chatPatientCaseListBean.getSymptom();
+//        //更新时间
+//        String mStrUpdateTime = chatPatientCaseListBean.getUpdatedTime();
+//        //描述
+//        String mStrDescription = chatPatientCaseListBean.getDescription();
+//        //症状和特征
+//        String mStrSymptom = chatPatientCaseListBean.getSymptom();
 
         Map<String, Object> map = new HashMap<>();
         map.put(DataKey.KEY_TITLE, "基本信息");
-        map.put(DataKey.KEY_AVATAR, mStrAvatar);
-        map.put(DataKey.KEY_AGE, mIntAge);
-        map.put(DataKey.KEY_GENDER, mStrGender);
-        map.put(DataKey.KEY_UPDATE_TIME, UIUtils.timeISO8601ConvertToNormal(mStrUpdateTime));
-        map.put(DataKey.KEY_CONTENT, UIUtils.getNotNullString(mStrDescription));
-        map.put(DataKey.KEY_SYMPTOM, UIUtils.getNotNullString(mStrSymptom));
-        map.put(DataKey.KEY_IMG, chatPatientCaseListBean.getImages());
+        map.put(DataKey.KEY_AVATAR, "");
+        map.put(DataKey.KEY_AGE, "20");
+        map.put(DataKey.KEY_GENDER, "男");
+        map.put(DataKey.KEY_UPDATE_TIME, "2018");
+        map.put(DataKey.KEY_CONTENT, "test");
+        map.put(DataKey.KEY_SYMPTOM, "symbol");
+        map.put(DataKey.KEY_IMG, "");
 
         list.add(map);
     }
@@ -233,8 +236,9 @@ public class DoctorCaseDetailsActivity extends BaseActivity {
                 TextView mTxtSymptom = (TextView) itemView.findViewById(R.id.id_txt_symptom);
                 mTxtSymptom.setText((String) list.get(i).get(DataKey.KEY_SYMPTOM));
 
-                List<ImageNameBean> images = (List<ImageNameBean>) list.get(i).get(DataKey.KEY_IMG);
-                createImageView(itemView, images);
+//                List<ImageNameBean> images = (List<ImageNameBean>) list.get(i).get(DataKey.KEY_IMG);
+//                createImageView(itemView, images);
+                createImageView(itemView);
             }
 
             return itemView;
@@ -252,6 +256,17 @@ public class DoctorCaseDetailsActivity extends BaseActivity {
         ArrayList<String> imageList = new ArrayList<>();
         for (ImageNameBean imageNameBean : images) {
             String imageUrl = imageNameBean.getImageUrl();
+            imageList.add(imageUrl);
+        }
+        autoGridImageView.addImages(imageList);
+    }
+
+    public void createImageView(View view) {
+        AutoGridImageView autoGridImageView = (AutoGridImageView) view.findViewById(R.id.auto_image_container);
+        autoGridImageView.setVisibility(View.VISIBLE);
+        ArrayList<String> imageList = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            String imageUrl = "http://p0.so.qhimgs1.com/t01a470b7418af6434a.jpg";
             imageList.add(imageUrl);
         }
         autoGridImageView.addImages(imageList);
@@ -279,14 +294,16 @@ public class DoctorCaseDetailsActivity extends BaseActivity {
         setFloatingButtonClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getHostUrlData();
+//                getHostUrlData();
+                takeOrder("");
             }
         });
 
-        String join = getIntent().getStringExtra(ExtraPass.JOIN);
-        if (join == null) {
-            setFloatingButtonVisible(true);
-        }
+//        String join = getIntent().getStringExtra(ExtraPass.JOIN);
+//        if (join == null) {
+//            setFloatingButtonVisible(true);
+//        }
+        setFloatingButtonVisible(true);
     }
 
     protected void getHostUrlDataSuccess(String json) {

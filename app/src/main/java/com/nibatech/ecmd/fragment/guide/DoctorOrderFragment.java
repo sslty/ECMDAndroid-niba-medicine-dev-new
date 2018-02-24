@@ -31,6 +31,7 @@ public class DoctorOrderFragment extends DoctorGuideFragment {
     @Override
     protected void onCreateSuccessView(View successView) {
         initView(successView);
+        getRefreshListSuccess("");
     }
 
     @Override
@@ -51,15 +52,16 @@ public class DoctorOrderFragment extends DoctorGuideFragment {
     }
 
     private void registerBroadCast() {
-        broadCast = new BroadCast(getActivity(), BroadCast.REFRESH_GUIDE_DOCTOR_ORDER,
-                new BroadCastCallBack() {
-                    @Override
-                    public void onRefresh(String action) {
-                        if (action.equals(BroadCast.REFRESH_GUIDE_DOCTOR_ORDER)) {
-                            getHttpData();
-                        }
-                    }
-                });
+//        broadCast = new BroadCast(getActivity(), BroadCast.REFRESH_GUIDE_DOCTOR_ORDER,
+//                new BroadCastCallBack() {
+//                    @Override
+//                    public void onRefresh(String action) {
+//                        if (action.equals(BroadCast.REFRESH_GUIDE_DOCTOR_ORDER)) {
+//                            getHttpData();
+//                        }
+//                    }
+//                });
+        getHttpData();
     }
 
     protected List<Map<String, Object>> setDataToList(List<OnlineTreatmentBean> onlineTreatments) {
@@ -113,18 +115,30 @@ public class DoctorOrderFragment extends DoctorGuideFragment {
                 mStrUpdatedTime = String.format(STRING_DIRECTION_ORDER, mStrUpdatedTime);
             }
 
-            map.put(DataKey.KEY_AVATAR, mStrAvatar);
-            map.put(DataKey.KEY_GENDER, mStrGender);
-            map.put(DataKey.KEY_AGE, mStrAge);
-            map.put(DataKey.KEY_NAME, mStrGender + " " + mStrAge + "岁");
-            map.put(DataKey.KEY_CREATE_TIME, mStrUpdatedTime);
-            map.put(DataKey.KEY_UPDATE_TIME, mShowTime);
-            map.put(DataKey.KEY_CONTENT, mStrDescription);
-            map.put(DataKey.KEY_DOCTOR_COUNT, mStrDoctorCount);
-            map.put(DataKey.KEY_MAX_PRICE, mStrPrice);
-            map.put(DataKey.KEY_URL, mStrUrl);
-            map.put(DataKey.KEY_JOIN, mStrJoin);
-            map.put(DataKey.KEY_STATE, mStrJoin);
+            list.add(map);
+        }
+
+        return list;
+    }
+
+
+    protected List<Map<String, Object>> setDataToList(int num) {
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        for (int i = 0; i < num; i++) {
+            Map<String, Object> map = new HashMap<>();
+            map.put(DataKey.KEY_AVATAR, "");
+            map.put(DataKey.KEY_GENDER, "");
+            map.put(DataKey.KEY_AGE, "20");
+            map.put(DataKey.KEY_NAME, "男" + " " + "10" + "岁");
+            map.put(DataKey.KEY_CREATE_TIME, "2018");
+            map.put(DataKey.KEY_UPDATE_TIME, "2016");
+            map.put(DataKey.KEY_CONTENT, "test");
+            map.put(DataKey.KEY_DOCTOR_COUNT, "4");
+            map.put(DataKey.KEY_MAX_PRICE, "11");
+            map.put(DataKey.KEY_URL, "");
+            map.put(DataKey.KEY_JOIN, "join");
+            map.put(DataKey.KEY_STATE, "join");
 
             list.add(map);
         }
@@ -132,12 +146,14 @@ public class DoctorOrderFragment extends DoctorGuideFragment {
         return list;
     }
 
+
     @Override
     protected void onListItemClick(BaseCustomRecycleListView.ViewHolder viewHolder, List<Map<String, Object>> adapterList, int position) {
-        ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(getActivity(), viewHolder.getListItemView(R.id.list_item_view).getHeadView(), getString(R.string.transition));
-        startActivityBindData(DoctorCaseDetailsActivity.class,
-                (String) adapterList.get(position).get(DataKey.KEY_URL),
-                GUIDE_DOCTOR_ORDER, (String) adapterList.get(position).get(DataKey.KEY_JOIN), transitionActivityOptions);
+//        ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(getActivity(), viewHolder.getListItemView(R.id.list_item_view).getHeadView(), getString(R.string.transition));
+//        startActivityBindData(DoctorCaseDetailsActivity.class,
+//                (String) adapterList.get(position).get(DataKey.KEY_URL),
+//                GUIDE_DOCTOR_ORDER, (String) adapterList.get(position).get(DataKey.KEY_JOIN), transitionActivityOptions);
+        startActivityNotBindData(DoctorCaseDetailsActivity.class);
     }
 }
 

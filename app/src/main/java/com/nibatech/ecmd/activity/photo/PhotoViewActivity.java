@@ -117,6 +117,7 @@ public class PhotoViewActivity extends TakePhotoActivity {
                 finish();
                 break;
         }
+
     }
 
     //压缩图片

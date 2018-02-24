@@ -34,12 +34,13 @@ public class FriendsViewPageFragment extends BaseFragment {
     }
 
     public void setStrSelfUrl(String url) {
-        CommonRequest.getUrlData(url, new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                getHostUrlDataSuccess(success.toString());
-            }
-        });
+//        CommonRequest.getUrlData(url, new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                getHostUrlDataSuccess(success.toString());
+//            }
+//        });
+        getHostUrlDataSuccess();
     }
 
     private void getHostUrlDataSuccess(String json) {
@@ -53,6 +54,21 @@ public class FriendsViewPageFragment extends BaseFragment {
             List<String> detailsUrls = new ArrayList<>();
             detailsUrls.add(friendUrlBean.getGetChatUrl());//聊天
             detailsUrls.add(friendUrlBean.getGetChatUrl());//通讯录
+
+            addPageFragmentBindData(fragments, mTopTitles, selfUrls, detailsUrls);
+        }
+    }
+
+    private void getHostUrlDataSuccess() {
+        if (fragments != null && fragments.size() > 0) {
+            //self-urls
+            List<String> selfUrls = new ArrayList<>();
+            selfUrls.add("");//聊天
+            selfUrls.add("");//通讯录
+            //details-urls
+            List<String> detailsUrls = new ArrayList<>();
+            detailsUrls.add("");//聊天
+            detailsUrls.add("");//通讯录
 
             addPageFragmentBindData(fragments, mTopTitles, selfUrls, detailsUrls);
         }

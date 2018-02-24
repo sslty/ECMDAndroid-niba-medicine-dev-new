@@ -10,7 +10,9 @@ import android.widget.TextView;
 import com.nibatech.ecmd.R;
 import com.nibatech.ecmd.common.bean.common.DoctorProfileBean;
 import com.nibatech.ecmd.common.bean.common.EffectsBean;
+import com.nibatech.ecmd.common.bean.personal.AssignedOltBean;
 import com.nibatech.ecmd.common.bean.personal.DoctorPersonalBean;
+import com.nibatech.ecmd.common.bean.personal.RelationsBean;
 import com.nibatech.ecmd.common.follow.FollowingButton;
 import com.nibatech.ecmd.common.follow.FollowingCallBack;
 import com.nibatech.ecmd.common.request.CommonRequest;
@@ -61,20 +63,47 @@ public class DoctorPersonalFragment extends BaseFragment implements NormalViewFr
 
     @Override
     public void getHostUrlData() {
-        CommonRequest.getUrlData(getIntentSelfUrl(), new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                getHostUrlDataSuccess(success.toString());
-            }
-        });
+//        CommonRequest.getUrlData(getIntentSelfUrl(), new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                getHostUrlDataSuccess(success.toString());
+//            }
+//        });
+        getHostUrlDataSuccess("");
     }
 
     @Override
     public void getHostUrlDataSuccess(String json) {
-        DoctorPersonalBean doctorPersonalBean = UIUtils.fromJson(json, DoctorPersonalBean.class);
-        if (doctorPersonalBean != null && doctorPersonalBean.isSuccess()) {
-            setViewData(doctorPersonalBean);
-        }
+//        DoctorPersonalBean doctorPersonalBean = UIUtils.fromJson(json, DoctorPersonalBean.class);
+//        if (doctorPersonalBean != null && doctorPersonalBean.isSuccess()) {
+//            setViewData(doctorPersonalBean);
+//        }
+        DoctorPersonalBean doctorPersonalBean = new DoctorPersonalBean();
+        AssignedOltBean assignedOltBean = new AssignedOltBean();
+        assignedOltBean.setTreatingStatus("fff");
+        doctorPersonalBean.setAssignedOlt(assignedOltBean);
+        DoctorProfileBean doctorProfileBean = new DoctorProfileBean();
+        doctorProfileBean.setAge(29);
+        doctorProfileBean.setFullName("rrrr");
+        doctorProfileBean.setGender("男");
+        doctorProfileBean.setDoctorType("type");
+        doctorProfileBean.setHomepageUrl(null);
+        doctorPersonalBean.setDoctorProfile(doctorProfileBean);
+        EffectsBean effectsBean = new EffectsBean();
+        effectsBean.setDelete(6);
+        effectsBean.setInvalid(3);
+        effectsBean.setLost(7);
+        effectsBean.setProcessing(9);
+        effectsBean.setRecover(4);
+        effectsBean.setRemarkable(4);
+        effectsBean.setRemarkableRate(5);
+        effectsBean.setValid(7);
+        doctorPersonalBean.setEffects(effectsBean);
+        RelationsBean relationsBean = new RelationsBean();
+        relationsBean.setFollowUrl("");
+        doctorPersonalBean.setRelations(relationsBean);
+        doctorPersonalBean.setSuccess(true);
+        setViewData(doctorPersonalBean);
     }
 
     @Override
@@ -90,14 +119,14 @@ public class DoctorPersonalFragment extends BaseFragment implements NormalViewFr
                 .setHospital(mStrLocation)
                 .showVIP(true);
         //关注
-        new FollowingButton(getActivity(), mTxtFollowing,
-                doctorPersonalBean.getRelations(),
-                getIntentStringEntrance(),
-                new FollowingCallBack() {
-                    @Override
-                    public void onClickButton() {
-                    }
-                });
+//        new FollowingButton(getActivity(), mTxtFollowing,
+//                doctorPersonalBean.getRelations(),
+//                getIntentStringEntrance(),
+//                new FollowingCallBack() {
+//                    @Override
+//                    public void onClickButton() {
+//                    }
+//                });
 
         //疗效饼状图
         if (doctorPersonalBean.getEffects() != null) {

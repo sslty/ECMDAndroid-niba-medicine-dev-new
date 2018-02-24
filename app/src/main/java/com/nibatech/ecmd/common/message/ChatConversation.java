@@ -67,42 +67,42 @@ public class ChatConversation {
         conversation = TIMManager.getInstance().getConversation(TIMConversationType.C2C, peerBean.getPeer());
         conversation.setReadMessage();
         //从服务器一次性拉取聊天记录
-        CommonRequest.getCommonMoreList(url, PER_PAGE, new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                chatConversationBean = new Gson().fromJson(success.toString(), ChatConversationBean.class);
-                CommonRequest.getUrlData(chatConversationBean.getPages().getLastUrl(), new VolleyCallback() {
-                    @Override
-                    public void onSuccessResponse(JSONObject success) {
-                        getConversationSuccess(success.toString(), true);
-                    }
-                });
-            }
-        });
-
-        this.lvMsg.setOnScrollListener(new AbsListView.OnScrollListener() {
-            private int firstItem;
-
-            @Override
-            public void onScrollStateChanged(AbsListView absListView, int scrollState) {
-                if (scrollState == SCROLL_STATE_IDLE && firstItem == 0) {
-                    getMessageFromHost(chatConversationBean.getPages().getPrevUrl(), new VolleyCallback() {
-                        @Override
-                        public void onSuccessResponse(JSONObject success) {
-                            getConversationSuccess(success.toString(), false);
-                        }
-                    });
-                }
-                if (scrollState == SCROLL_STATE_TOUCH_SCROLL) {
-                    ekBar.reset();
-                }
-            }
-
-            @Override
-            public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                firstItem = firstVisibleItem;
-            }
-        });
+//        CommonRequest.getCommonMoreList(url, PER_PAGE, new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                chatConversationBean = new Gson().fromJson(success.toString(), ChatConversationBean.class);
+//                CommonRequest.getUrlData(chatConversationBean.getPages().getLastUrl(), new VolleyCallback() {
+//                    @Override
+//                    public void onSuccessResponse(JSONObject success) {
+//                        getConversationSuccess(success.toString(), true);
+//                    }
+//                });
+//            }
+//        });
+//
+//        this.lvMsg.setOnScrollListener(new AbsListView.OnScrollListener() {
+//            private int firstItem;
+//
+//            @Override
+//            public void onScrollStateChanged(AbsListView absListView, int scrollState) {
+//                if (scrollState == SCROLL_STATE_IDLE && firstItem == 0) {
+//                    getMessageFromHost(chatConversationBean.getPages().getPrevUrl(), new VolleyCallback() {
+//                        @Override
+//                        public void onSuccessResponse(JSONObject success) {
+//                            getConversationSuccess(success.toString(), false);
+//                        }
+//                    });
+//                }
+//                if (scrollState == SCROLL_STATE_TOUCH_SCROLL) {
+//                    ekBar.reset();
+//                }
+//            }
+//
+//            @Override
+//            public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+//                firstItem = firstVisibleItem;
+//            }
+//        });
     }
 
     public ChatConversation(String peer) {
@@ -177,14 +177,15 @@ public class ChatConversation {
     }
 
     public void sendMessage(ChatMaterialBean bean) {
-        if (!BaseVolleyRequest.getLogin().getUser().getCdNumber().equals(TIMManager.getInstance().getLoginUser())) {
-            Toast.makeText(UIUtils.getContext(), "消息系统未连接，请稍等片刻重新发送或重新登陆！", Toast.LENGTH_SHORT).show();
-        } else {
-            if (!bean.getName().isEmpty()) {
-                sendHttpHost(bean);//host断网时，没有发送到host，所以一次拉取不到，显示不到界面上
-                sendToTIM(bean);//腾讯断网时，会走onError,并且会显示在界面上
-            }
-        }
+//        if (!BaseVolleyRequest.getLogin().getUser().getCdNumber().equals(TIMManager.getInstance().getLoginUser())) {
+//            Toast.makeText(UIUtils.getContext(), "消息系统未连接，请稍等片刻重新发送或重新登陆！", Toast.LENGTH_SHORT).show();
+//        } else {
+//            if (!bean.getName().isEmpty()) {
+//                sendHttpHost(bean);//host断网时，没有发送到host，所以一次拉取不到，显示不到界面上
+//                sendToTIM(bean);//腾讯断网时，会走onError,并且会显示在界面上
+//            }
+//        }
+        sendToTIM(bean);
     }
 
 
@@ -239,7 +240,6 @@ public class ChatConversation {
                 }
             }
         }
-
     }
 
 

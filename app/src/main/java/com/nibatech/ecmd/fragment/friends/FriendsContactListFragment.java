@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.google.gson.Gson;
 import com.nibatech.ecmd.R;
 import com.nibatech.ecmd.activity.chat.friends.ChatFriendsActivity;
+import com.nibatech.ecmd.common.bean.common.DoctorProfileBean;
 import com.nibatech.ecmd.common.bean.friends.FriendChatContactBean;
 import com.nibatech.ecmd.common.bean.friends.FriendListBean;
 import com.nibatech.ecmd.common.broadcast.BroadCast;
@@ -76,12 +77,13 @@ public class FriendsContactListFragment extends ViewPageLoadingFragment
 
     @Override
     protected void getHttpData() {
-        CommonRequest.getUrlData(getIntentSelfUrl(), new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                getHostUrlDataSuccess(success.toString());
-            }
-        });
+//        CommonRequest.getUrlData(getIntentSelfUrl(), new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                getHostUrlDataSuccess(success.toString());
+//            }
+//        });
+        getHostUrlDataSuccess("");
     }
 
     private void initView(View view) {
@@ -90,8 +92,27 @@ public class FriendsContactListFragment extends ViewPageLoadingFragment
     }
 
     public void getHostUrlDataSuccess(String json) {
-        FriendListBean friendListBean = new Gson().fromJson(json, FriendListBean.class);
-        loadingContacts(friendListBean.getFriends());
+//        FriendListBean friendListBean = new Gson().fromJson(json, FriendListBean.class);
+//        loadingContacts(friendListBean.getFriends());
+        List<FriendListBean.Friend> friendList = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            FriendListBean.Friend friend = new FriendListBean.Friend();
+            friend.setCreateChatUrl("");
+
+            DoctorProfileBean doctorProfileBean = new DoctorProfileBean();
+            doctorProfileBean.setAge(10);
+            doctorProfileBean.setAvatarUrl("");
+            doctorProfileBean.setCdNumber("2332");
+            doctorProfileBean.setExcellent(true);
+            String chars = "abcdjkl";
+            doctorProfileBean.setFullName("" + chars.charAt((int) (Math.random() * 7)));
+            doctorProfileBean.setGender("男");
+            doctorProfileBean.setVerified(true);
+            friend.setDoctorProfile(doctorProfileBean);
+            friendList.add(friend);
+        }
+
+        loadingContacts(friendList);
     }
 
     private void loadingContacts(List<FriendListBean.Friend> friends) {
@@ -112,23 +133,25 @@ public class FriendsContactListFragment extends ViewPageLoadingFragment
 
 
     private void requestCreateChat(String url, final String name) {
-        CommonRequest.postUrlData(url, new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                postCreateChatSuccess(success.toString(), name);
-            }
-        });
+//        CommonRequest.postUrlData(url, new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                postCreateChatSuccess(success.toString(), name);
+//            }
+//        });
+        postCreateChatSuccess("", name);
     }
 
     private void postCreateChatSuccess(String json, String name) {
-        FriendChatContactBean friendChatBean = UIUtils.fromJson(json, FriendChatContactBean.class);
-        //医生信息
-        friendChatBean.getDoctorProfile();
-        friendChatBean.getChatId();
-        friendChatBean.getMessageInfo();
-        friendChatBean.getSelfUrl();
-
-        startActivityBindData(ChatFriendsActivity.class,
-                friendChatBean.getSelfUrl(), name);
+//        FriendChatContactBean friendChatBean = UIUtils.fromJson(json, FriendChatContactBean.class);
+//        //医生信息
+//        friendChatBean.getDoctorProfile();
+//        friendChatBean.getChatId();
+//        friendChatBean.getMessageInfo();
+//        friendChatBean.getSelfUrl();
+//
+//        startActivityBindData(ChatFriendsActivity.class,
+//                friendChatBean.getSelfUrl(), name);
+        startActivityNotBindData(ChatFriendsActivity.class);
     }
 }

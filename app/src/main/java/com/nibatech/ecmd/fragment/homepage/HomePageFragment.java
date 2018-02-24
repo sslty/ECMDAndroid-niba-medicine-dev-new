@@ -173,12 +173,30 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
 
 
     private void setBanner() {
-        CommonRequest.getBanner(new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                getBannerSuccess(success.toString());
-            }
-        });
+//        CommonRequest.getBanner(new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                getBannerSuccess(success.toString());
+//            }
+//        });
+        String success = "{\"banners\": [\n" +
+                "    {\n" +
+                "        \"link_url\": \"http://mp.weixin.qq.com/s/chw8ChbbHwx11uRhWaK8mw\",\n" +
+                "        \"image_url\": \"http://p0.so.qhimgs1.com/bdr/326__/t016ea91f1d952fff4a.jpg\",\n" +
+                "        \"title\": \"test1\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "        \"link_url\": \"http://mp.weixin.qq.com/s/_1TbvhyvhSE3HJmw18W_Rw\",\n" +
+                "        \"image_url\": \"http://p4.so.qhmsg.com/bdr/326__/t01e57bac1b51171009.jpg\",\n" +
+                "        \"title\": \"test2\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "        \"link_url\": \"http://mp.weixin.qq.com/s/s7ecLff8y0E5t5zCS-ALBA\",\n" +
+                "        \"image_url\": \"http://p4.so.qhmsg.com/bdr/326__/t011cd344b5077e5209.jpg\",\n" +
+                "        \"title\": \"test3\"\n" +
+                "    }\n" +
+                "]}";
+        getBannerSuccess(success);
     }
 
     //获得首页图片banner
@@ -222,7 +240,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
 
     //跳转搜索
     private void gotoSearching() {
-        startActivityBindData(SearchListActivity.class, getAPIsUrl(getActivity()).getEntranceNormalSearch());
+//        startActivityBindData(SearchListActivity.class, getAPIsUrl(getActivity()).getEntranceNormalSearch());
+        startActivityBindData(SearchListActivity.class, "");
+
     }
 
     //获取首页上的api-url

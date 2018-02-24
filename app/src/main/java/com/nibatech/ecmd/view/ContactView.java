@@ -134,6 +134,7 @@ public class ContactView extends LinearLayout implements SideBar.OnTouchingLette
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
+
             View view = View.inflate(activity, R.layout.list_contact, null);
 
             HeadItemView headItemView = (HeadItemView) view.findViewById(R.id.headItemView);

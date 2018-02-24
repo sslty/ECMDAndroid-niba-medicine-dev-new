@@ -42,6 +42,7 @@ public class FollowedFragment extends RefreshListViewFragment implements
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_followed, container, false);
         initView(view);
+        getHttpData();
         return view;
     }
 
@@ -81,17 +82,19 @@ public class FollowedFragment extends RefreshListViewFragment implements
 
     @Override
     public void getHttpData() {
-        CommonRequest.getUrlData(getIntentSelfUrl(), new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                getRefreshListSuccess(success.toString());
-            }
-        });
+//        CommonRequest.getUrlData(getIntentSelfUrl(), new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                getRefreshListSuccess(success.toString());
+//            }
+//        });
+        getRefreshListSuccess("");
     }
 
     @Override
     public void clickViewItem(RecyclerView.ViewHolder viewHolder, List<Map<String, Object>> adapterList, int position) {
-        startActivityBindData(DoctorPersonalActivity.class, (String) adapterList.get(position).get(DataKey.KEY_HOMEPAGE));
+//        startActivityBindData(DoctorPersonalActivity.class, (String) adapterList.get(position).get(DataKey.KEY_HOMEPAGE));
+        startActivityNotBindData(DoctorPersonalActivity.class);
     }
 
     @Override
@@ -108,9 +111,22 @@ public class FollowedFragment extends RefreshListViewFragment implements
 
     @Override
     public List<Map<String, Object>> getDataFromJson(String json) {
-        MineFollowedBean mineFollowedBean = UIUtils.fromJson(json, MineFollowedBean.class);
+//        MineFollowedBean mineFollowedBean = UIUtils.fromJson(json, MineFollowedBean.class);
+//        return setDataToList(mineFollowedBean.getFollowed());
+        MineFollowedBean.Followed followed = new MineFollowedBean.Followed();
+        DoctorProfileBean doctorProfileBean = new DoctorProfileBean();
+        doctorProfileBean.setVerified(true);
+        doctorProfileBean.setGender("男");
+        doctorProfileBean.setFullName("gggg");
+        doctorProfileBean.setExcellent(true);
+        doctorProfileBean.setAge(19);
+        followed.setDoctorProfile(doctorProfileBean);
 
-        return setDataToList(mineFollowedBean.getFollowed());
+        ArrayList<MineFollowedBean.Followed> followedArrayList = new ArrayList<>();
+        followedArrayList.add(followed);
+        followedArrayList.add(followed);
+        followedArrayList.add(followed);
+        return setDataToList(followedArrayList);
     }
 
     private List<Map<String, Object>> setDataToList(List<MineFollowedBean.Followed> followers) {

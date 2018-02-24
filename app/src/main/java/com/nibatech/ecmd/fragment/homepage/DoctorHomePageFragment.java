@@ -36,7 +36,8 @@ public class DoctorHomePageFragment extends HomePageFragment implements HomePage
 
     @Override
     public void onClickGuide() {
-        startActivityBindData(DoctorGuideActivity.class, getAPIsUrl(getActivity()).getEntranceOltDoctor());
+//        startActivityBindData(DoctorGuideActivity.class, getAPIsUrl(getActivity()).getEntranceOltDoctor());
+        startActivity(new Intent(getActivity(), DoctorGuideActivity.class));
     }
 
     @Override

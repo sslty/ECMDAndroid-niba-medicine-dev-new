@@ -94,12 +94,17 @@ public class RecycleListViewFragment extends ViewPageLoadingFragment
 
     //成功获取最新的数据
     protected void getRefreshListSuccess(String json) {
+//        if (isSetDataToView()) {
+//            //最新的数据
+//            refreshList = listener.getDataFromJson(json);
+//            //下一页的url
+//            strNextUrl = listener.getNextUrl();
+//            //更新数据到recycle-list-view
+//            recycleListView.refreshData(refreshList);
+//        }
         if (isSetDataToView()) {
-            //最新的数据
+            json = "";
             refreshList = listener.getDataFromJson(json);
-            //下一页的url
-            strNextUrl = listener.getNextUrl();
-            //更新数据到recycle-list-view
             recycleListView.refreshData(refreshList);
         }
     }

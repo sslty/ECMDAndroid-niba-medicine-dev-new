@@ -52,9 +52,14 @@ public class ProfileFragment extends BaseFragment implements View.OnClickListene
     }
 
     private void setUserInformation() {
-        //得到个人信息
-        LoginBean loginBean = BaseVolleyRequest.getLogin();
-        UserBean userBean = loginBean.getUser();
+//        //得到个人信息
+//        LoginBean loginBean = BaseVolleyRequest.getLogin();
+//        UserBean userBean = loginBean.getUser();
+        UserBean userBean = new UserBean();
+        userBean.setFullName("full name");
+        userBean.setAge(20);
+        userBean.setGender("男");
+        userBean.setCellPhone("13198893938");
         //姓名
         String mStrName = userBean.getFullName();
         lcvName.setContent(mStrName != null ? mStrName : "");

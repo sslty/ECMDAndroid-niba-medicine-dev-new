@@ -56,19 +56,27 @@ public class SearchListActivity extends BaseActivity implements CustomSearchView
     }
 
     private void getHttpData() {
-        CommonRequest.getUrlData(getIntentSelfUrl(), new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                getHttpDataSuccess(success.toString());
-            }
-        });
+//        CommonRequest.getUrlData(getIntentSelfUrl(), new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                getHttpDataSuccess(success.toString());
+//            }
+//        });
+        getHttpDataSuccess("");
     }
 
     private void getHttpDataSuccess(String json) {
-        SearchBean searchBean = UIUtils.fromJson(json, SearchBean.class);
-        if (searchBean != null) {
-            setViewData(searchBean);
-        }
+//        SearchBean searchBean = UIUtils.fromJson(json, SearchBean.class);
+//        if (searchBean != null) {
+//            setViewData(searchBean);
+//        }
+        SearchBean searchBean = new SearchBean();
+        searchBean.setCmsArticleDynamicQueryUrl("");
+        searchBean.setCmsEncyclopaedicQueryUrl("");
+        searchBean.setDoctorArticleQueryUrl("");
+        searchBean.setExcellentQueryUrl("");
+        searchBean.setMedicineLegacyUrl("");
+        setViewData(searchBean);
     }
 
     private void setViewData(SearchBean searchBean) {

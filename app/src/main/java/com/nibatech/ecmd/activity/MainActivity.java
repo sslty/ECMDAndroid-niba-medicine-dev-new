@@ -177,9 +177,10 @@ public class MainActivity extends SlidingTabActivity implements View.OnClickList
                 intent = new Intent(MainActivity.this, ForgetPasswordActivity.class);
                 break;
             case R.id.rtv_login://登录
-                if (isLoginValid()) {
-                    login(mEditTxtPhone.getText().toString(), mEditTxtPassword.getText().toString());
-                }
+//                if (isLoginValid()) {
+//                    login(mEditTxtPhone.getText().toString(), mEditTxtPassword.getText().toString());
+//                }
+                login("111", "111");
                 break;
             case R.id.id_btn_register://注册
                 intent = new Intent(MainActivity.this, IdentityActivity.class);
@@ -204,39 +205,43 @@ public class MainActivity extends SlidingTabActivity implements View.OnClickList
     }
 
     private void login(final String phone, final String password) {
-        showProgress(true);
-        CommonRequest.login(phone, password, new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                showProgress(false);
-                //登录
-                UIUtils.login(getApplicationContext(), success.toString(), phone, password);
-                //homepage
-                startHomePage();
-            }
+//        showProgress(true);
+//        CommonRequest.login(phone, password, new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                showProgress(false);
+//                //登录
+//                UIUtils.login(getApplicationContext(), success.toString(), phone, password);
+//                //homepage
+//                startHomePage();
+//            }
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                showProgress(false);
+//            }
+//        });
 
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                showProgress(false);
-            }
-        });
+        UIUtils.login(getApplicationContext(), null, phone, password);
+        //homepage
+        startHomePage();
     }
 
     //进入首页
     private void startHomePage() {
         Intent intent = new Intent();
-        switch (BaseVolleyRequest.getIdentity()) {
-            case BaseVolleyRequest.IDENTITY_DOCTOR:
-                intent.setClass(getApplicationContext(), DoctorHomePageActivity.class);
-                break;
-            case BaseVolleyRequest.IDENTITY_PATIENT:
-                intent.setClass(getApplicationContext(), PatientHomePageActivity.class);
-                break;
-            case BaseVolleyRequest.IDENTITY_TOURIST:
-                intent.setClass(getApplicationContext(), TouristHomePageActivity.class);
-                break;
-        }
-
+//        switch (BaseVolleyRequest.getIdentity()) {
+//            case BaseVolleyRequest.IDENTITY_DOCTOR:
+//                intent.setClass(getApplicationContext(), DoctorHomePageActivity.class);
+//                break;
+//            case BaseVolleyRequest.IDENTITY_PATIENT:
+//                intent.setClass(getApplicationContext(), PatientHomePageActivity.class);
+//                break;
+//            case BaseVolleyRequest.IDENTITY_TOURIST:
+//                intent.setClass(getApplicationContext(), TouristHomePageActivity.class);
+//                break;
+//        }
+        intent.setClass(getApplicationContext(), DoctorHomePageActivity.class);
         startActivity(intent);
         finish();
     }

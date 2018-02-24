@@ -88,7 +88,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 gotoModifyProfile();
                 break;
             case R.id.lcv_followed://我的关注
-                startActivityBindData(FollowedActivity.class, mineBean.getFollowed().getSelfUrl());
+//                startActivityBindData(FollowedActivity.class, mineBean.getFollowed().getSelfUrl());
+                startActivityNotBindData(FollowedActivity.class);
                 break;
             case R.id.lcv_follower://关注我的
                 startActivityBindData(FollowerViewPageActivity.class, mineBean.getFollowers().getSelfUrl());
@@ -115,27 +116,29 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void getHostUrlData() {
-        CommonRequest.getUrlData(getStrSelfUrl(), new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                getHostUrlDataSuccess(success.toString());
-            }
-        });
+//        CommonRequest.getUrlData(getStrSelfUrl(), new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                getHostUrlDataSuccess(success.toString());
+//            }
+//        });
+        getHostUrlDataSuccess("");
     }
 
     private void gotoModifyProfile() {
-        final UserBean userBean = BaseVolleyRequest.getLogin().getUser();
-
-        if (userBean.getCdNumber() == null) {//如果没有填写任何资料
-            Toast.makeText(getActivity(), "请完善您的个人信息", Toast.LENGTH_SHORT).show();
-            if (userBean.getDoctor() != null) {//直接进入补充医生资料界面
-                startActivityNotBindData(UpdateDoctorActivity.class);
-            } else if (userBean.getPatient() != null) {
-                startActivityNotBindData(UpdatePatientActivity.class);
-            }
-        } else {//进入修改个人界面
-            startActivityBindData(ProfileActivity.class, new Gson().toJson(mineBean));
-        }
+//        final UserBean userBean = BaseVolleyRequest.getLogin().getUser();
+//
+//        if (userBean.getCdNumber() == null) {//如果没有填写任何资料
+//            Toast.makeText(getActivity(), "请完善您的个人信息", Toast.LENGTH_SHORT).show();
+//            if (userBean.getDoctor() != null) {//直接进入补充医生资料界面
+//                startActivityNotBindData(UpdateDoctorActivity.class);
+//            } else if (userBean.getPatient() != null) {
+//                startActivityNotBindData(UpdatePatientActivity.class);
+//            }
+//        } else {//进入修改个人界面
+//            startActivityBindData(ProfileActivity.class, new Gson().toJson(mineBean));
+//        }
+        startActivityNotBindData(ProfileActivity.class);
     }
 
     public void initView(View view) {
@@ -170,39 +173,47 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     }
 
     public void getHostUrlDataSuccess(String json) {
-        mineBean = UIUtils.fromJson(json, MineBean.class);
-
+//        mineBean = UIUtils.fromJson(json, MineBean.class);
         setViewData();
     }
 
     public void setViewData() {
-        //用户信息
-        LoginBean loginInfo = BaseVolleyRequest.getLogin();
-        UserBean userProfile = loginInfo.getUser();
-        //名字
-        String mStrName = userProfile.getFullName();
+//        //用户信息
+//        LoginBean loginInfo = BaseVolleyRequest.getLogin();
+//        UserBean userProfile = loginInfo.getUser();
+//        //名字
+//        String mStrName = userProfile.getFullName();
+//        String strSpace = "      ";
+//        //名字
+//        if (mStrName != null) {
+//            mTxtName.setVisibility(View.VISIBLE);
+//            mTxtName.setText(mStrName);
+//        }
+//
+//        //头像
+//        imgAvatar.setHeadPhotoAndGender(userProfile.getAvatarUrl(), userProfile.getGender());
+//
+//        if (BaseVolleyRequest.getIdentity() == BaseVolleyRequest.IDENTITY_DOCTOR) {
+//            //我的关注
+//            String strFollowed = String.valueOf(mineBean.getFollowed().getCount());
+//            lcvFollowed.setTitle(String.format("我的关注:%1s%2s", strSpace, strFollowed));
+//            lcvFollowed.setVisibility(View.VISIBLE);
+//
+//            //关注我的
+//            String strFollower = String.valueOf(mineBean.getFollowers().getCount());
+//            lcvFollower.setTitle(String.format("关注我的:%1s%2s", strSpace, strFollower));
+//            lcvFollower.setVisibility(View.VISIBLE);
+//        }
+
+        mTxtName.setVisibility(View.VISIBLE);
+        mTxtName.setText("name");
+
+        imgAvatar.setHeadPhotoAndGender(null, null);
+
         String strSpace = "      ";
-
-        //名字
-        if (mStrName != null) {
-            mTxtName.setVisibility(View.VISIBLE);
-            mTxtName.setText(mStrName);
-        }
-
-        //头像
-        imgAvatar.setHeadPhotoAndGender(userProfile.getAvatarUrl(), userProfile.getGender());
-
-        if (BaseVolleyRequest.getIdentity() == BaseVolleyRequest.IDENTITY_DOCTOR) {
-            //我的关注
-            String strFollowed = String.valueOf(mineBean.getFollowed().getCount());
-            lcvFollowed.setTitle(String.format("我的关注:%1s%2s", strSpace, strFollowed));
-            lcvFollowed.setVisibility(View.VISIBLE);
-
-            //关注我的
-            String strFollower = String.valueOf(mineBean.getFollowers().getCount());
-            lcvFollower.setTitle(String.format("关注我的:%1s%2s", strSpace, strFollower));
-            lcvFollower.setVisibility(View.VISIBLE);
-        }
+        String strFollowed = String.valueOf(30);
+        lcvFollowed.setTitle(String.format("我的关注:%1s%2s", strSpace, strFollowed));
+        lcvFollowed.setVisibility(View.VISIBLE);
 
         //有数据才显示
         scrollView.setVisibility(View.VISIBLE);

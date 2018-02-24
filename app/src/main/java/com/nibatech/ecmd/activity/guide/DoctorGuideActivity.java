@@ -28,7 +28,18 @@ public class DoctorGuideActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setToolBarText("中医指导");
 
-        getHostUrlData();
+//        getHostUrlData();
+
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new DoctorOrderFragment());
+        fragments.add(new DoctorDifficultFragment());
+        fragments.add(new DoctorOngoingFragment());
+        List<String> selfUrls = new ArrayList<>();
+        selfUrls.add("");
+        selfUrls.add("");
+        selfUrls.add("");
+        //view-page
+        addPageFragmentBindData(fragments, mTopTitles, selfUrls);
     }
 
     protected void getHostUrlDataSuccess(String json) {

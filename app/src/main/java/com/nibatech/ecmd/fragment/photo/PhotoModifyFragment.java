@@ -39,7 +39,7 @@ public class PhotoModifyFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_photo_modify, container, false);
 
-        getIntentData();
+//        getIntentData();
         getAllController(view);
         setControllerData();
 
@@ -68,44 +68,50 @@ public class PhotoModifyFragment extends Fragment {
     }
 
     private void setControllerData() {
-        if (path == null) {
-            if (BaseVolleyRequest.getLogin().getUser().getGender() == null) {
-                imageView.setImageResource(R.drawable.case_list_view_null);
-            } else if (BaseVolleyRequest.getLogin().getUser().getGender().compareTo("男") == 0) {
-                imageView.setImageResource(R.drawable.head_man);
-            } else {
-                imageView.setImageResource(R.drawable.head_woman);
-            }
-        } else {
-            BaseVolleyRequest.loadNetworkImage(getActivity(), path, imageView);
-        }
+//        if (path == null) {
+//            if (BaseVolleyRequest.getLogin().getUser().getGender() == null) {
+//                imageView.setImageResource(R.drawable.case_list_view_null);
+//            } else if (BaseVolleyRequest.getLogin().getUser().getGender().compareTo("男") == 0) {
+//                imageView.setImageResource(R.drawable.head_man);
+//            } else {
+//                imageView.setImageResource(R.drawable.head_woman);
+//            }
+//        } else {
+//            BaseVolleyRequest.loadNetworkImage(getActivity(), path, imageView);
+//        }
+
+        imageView.setImageResource(R.drawable.head_woman);
 
         //手势
         new PhotoViewAttacher(imageView);
     }
 
     private void requestUploadAvatar(final ArrayList<String> paths) {
-        String url = BaseVolleyRequest.HOST_URL + "/api/user/upload_avatar";
-        BaseOKHttpRequest.post(getActivity(), url, paths, new OKHttpCallback() {
-            @Override
-            public void onSuccess(String success) {
-                getPostSuccess(success, paths.get(0));
-            }
-        });
+//        String url = BaseVolleyRequest.HOST_URL + "/api/user/upload_avatar";
+//        BaseOKHttpRequest.post(getActivity(), url, paths, new OKHttpCallback() {
+//            @Override
+//            public void onSuccess(String success) {
+//                getPostSuccess(success, paths.get(0));
+//            }
+//        });
+        getPostSuccess("", paths.get(0));
     }
 
     private void getPostSuccess(final String json, final String path) {
-        PersonalRequest.putUpdateAvatar(UIUtils.getImageUrl(json), new VolleyCallback() {
-            @Override
-            public void onSuccessResponse(JSONObject success) {
-                Toast.makeText(getActivity(), "头像更新成功", Toast.LENGTH_SHORT).show();
-                Bitmap bitmap = BitmapFactory.decodeFile(path, null);
-                imageView.setImageBitmap(bitmap);
-                //更新头像
-                UserBean userBean = BaseVolleyRequest.getLogin().getUser();
-                userBean.setAvatarUrl(UIUtils.getImageUrl(json));
-                BaseVolleyRequest.setUser(userBean);
-            }
-        });
+//        PersonalRequest.putUpdateAvatar(UIUtils.getImageUrl(json), new VolleyCallback() {
+//            @Override
+//            public void onSuccessResponse(JSONObject success) {
+//                Toast.makeText(getActivity(), "头像更新成功", Toast.LENGTH_SHORT).show();
+//                Bitmap bitmap = BitmapFactory.decodeFile(path, null);
+//                imageView.setImageBitmap(bitmap);
+//                //更新头像
+//                UserBean userBean = BaseVolleyRequest.getLogin().getUser();
+//                userBean.setAvatarUrl(UIUtils.getImageUrl(json));
+//                BaseVolleyRequest.setUser(userBean);
+//            }
+//        });
+        Toast.makeText(getActivity(), "头像更新成功", Toast.LENGTH_SHORT).show();
+        Bitmap bitmap = BitmapFactory.decodeFile(path, null);
+        imageView.setImageBitmap(bitmap);
     }
 }

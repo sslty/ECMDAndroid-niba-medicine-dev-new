@@ -53,16 +53,16 @@ public class DoctorHomePageActivity extends HomePageActivity implements Observer
     @Override
     protected void onResume() {
         super.onResume();
-        if (ChatConversation.getConversationTotalUnreadNum(PEER_DOCTOR) > 0) {
-            showMessageDot(1);
-        } else {
-            hideMessageDot(1);
-        }
-        if (ChatConversation.getConversationTotalUnreadNum(PEER_PATIENT) > 0) {
-            showMessageDot(2);
-        } else {
-            hideMessageDot(2);
-        }
+//        if (ChatConversation.getConversationTotalUnreadNum(PEER_DOCTOR) > 0) {
+//            showMessageDot(1);
+//        } else {
+//            hideMessageDot(1);
+//        }
+//        if (ChatConversation.getConversationTotalUnreadNum(PEER_PATIENT) > 0) {
+//            showMessageDot(2);
+//        } else {
+//            hideMessageDot(2);
+//        }
     }
 
     @Override
@@ -70,20 +70,20 @@ public class DoctorHomePageActivity extends HomePageActivity implements Observer
         if (data == null) {
             return;
         }
-        TIMConversation conversation = ((TIMMessage) data).getConversation();
-        if (conversation.getPeer().substring(0, 1).toUpperCase().equals(PEER_DOCTOR)) {
-            if (conversation.getUnreadMessageNum() > 0) {
-                showMessageDot(1);
-            } else {
-                hideMessageDot(1);
-            }
-        } else {
-            if (conversation.getUnreadMessageNum() > 0) {
-                showMessageDot(2);
-            } else {
-                hideMessageDot(2);
-            }
-        }
+//        TIMConversation conversation = ((TIMMessage) data).getConversation();
+//        if (conversation.getPeer().substring(0, 1).toUpperCase().equals(PEER_DOCTOR)) {
+//            if (conversation.getUnreadMessageNum() > 0) {
+//                showMessageDot(1);
+//            } else {
+//                hideMessageDot(1);
+//            }
+//        } else {
+//            if (conversation.getUnreadMessageNum() > 0) {
+//                showMessageDot(2);
+//            } else {
+//                hideMessageDot(2);
+//            }
+//        }
     }
 
 
@@ -97,7 +97,9 @@ public class DoctorHomePageActivity extends HomePageActivity implements Observer
             case 0:
                 break;
             case 1:
-                friendsViewPageFragment.setStrSelfUrl(HomePageFragment.getAPIsUrl(this).getEntranceDoctorFriends());
+//                friendsViewPageFragment.setStrSelfUrl(HomePageFragment.getAPIsUrl(this).getEntranceDoctorFriends());
+                friendsViewPageFragment.setStrSelfUrl("");
+
                 title = getString(R.string.friends);
                 break;
             case 2:

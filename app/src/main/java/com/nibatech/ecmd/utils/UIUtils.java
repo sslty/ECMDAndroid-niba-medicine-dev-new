@@ -309,15 +309,15 @@ public class UIUtils {
     public static void loginTM(String cd, String sign) {
         if (cd != null) {//有cd号才能登录
             TIMUser user = new TIMUser();
-            user.setAccountType("7214");
-            user.setAppIdAt3rd("1400014156");
+            user.setAccountType("7575");
+            user.setAppIdAt3rd("1400069338");
             user.setIdentifier(cd);
 
             //发起登录请求
             TIMManager.getInstance().login(
-                    1400014156,        //sdkAppId，由腾讯分配
+                    1400069338,        //sdkAppId，由腾讯分配
                     user,
-                    sign,              //用户帐号签名，由私钥加密获得，具体请参考文档
+                    sign,
                     new TIMCallBack() {//回调接口
                         @Override
                         public void onSuccess() {//登录成功
@@ -374,19 +374,21 @@ public class UIUtils {
 
     //用户登录
     public static void login(Context context, String success, String phone, String password) {
-        //json解析
-        LoginBean loginBean = new Gson().fromJson(success, LoginBean.class);
-        //新建数据库
-        BaseRealm.createUserRealm(context, loginBean.getUser().getCellPhone());
-        //保存用户名和密码
-        LoginSharedPreferences.save(context, phone, password);
-        //保存用户信息
-        BaseVolleyRequest.setLogin(loginBean);
-        //腾讯登录
-        loginTM(loginBean.getUser().getCdNumber(), loginBean.getUser().getTlsSig());
-        //绑定阿里云推送
-        loginALiYun(loginBean.getUser().getCellPhone());
+//        //json解析
+//        LoginBean loginBean = new Gson().fromJson(success, LoginBean.class);
+//        //新建数据库
+//        BaseRealm.createUserRealm(context, loginBean.getUser().getCellPhone());
+//        //保存用户名和密码
+//        LoginSharedPreferences.save(context, phone, password);
+//        //保存用户信息
+//        BaseVolleyRequest.setLogin(loginBean);
+//        //腾讯登录
+//        loginTM(loginBean.getUser().getCdNumber(), loginBean.getUser().getTlsSig());
+//        //绑定阿里云推送
+//        loginALiYun(loginBean.getUser().getCellPhone());
 
+        String sig = "eJxlj11vgjAYhe-5FYRbl62lFsHEiwmMmeic28gSbwihlb1DPmyrFpf99zlmMhLP7fOcnJwvwzRN623*eptmWb2vVKLahlvm2LSQdfMPmwZYkqqECHYFuW5A8CTdKC46iCmlNkJ9BxivFGzgYki5VW0PS1Yk3cZff3guOx4hbl*BvIOLcOXPojJcojV9Z8XdxzqWwVKL0amoU70P3dZ7JGH4oLZ*sFiBvofpcRoc4kE6PM5inWWf*UC0z-TJj0iGnXlFS9jtREQ99oLzyaQ3qaDkl0PYIyPiYqdHD1xIqKtOsNFZsQn6jWV8Gz9iCF1f";
+        loginTM("sslty", sig);
     }
 
     public static void connectToHostShowFail(Context context) {
