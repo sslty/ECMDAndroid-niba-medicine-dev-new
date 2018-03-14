@@ -17,6 +17,7 @@ public class ListItemHeadPartView extends LinearLayout {
     private final TextView tvTop;
     private final HeadView headView;
     private final TextView tvBottom;
+    private String picassoTag;
 
 
     public ListItemHeadPartView(final Context context, final AttributeSet attrs) {
@@ -28,7 +29,8 @@ public class ListItemHeadPartView extends LinearLayout {
         tvBottom = (TextView) findViewById(R.id.tv_bottom);
     }
 
-    public HeadView getHeadView(){//用于动画
+
+    public HeadView getHeadView() {//用于动画
         return headView;
     }
 
@@ -67,6 +69,7 @@ public class ListItemHeadPartView extends LinearLayout {
         headView.setHeadPhotoAndGender(imageUrl, gender);
         return this;
     }
+
 
     public ListItemHeadPartView setHeadViewTip(Integer tip) {
         headView.setVisibility(VISIBLE);

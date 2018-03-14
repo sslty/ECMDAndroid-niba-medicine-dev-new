@@ -101,7 +101,14 @@ public class FriendsContactListFragment extends ViewPageLoadingFragment
 
             DoctorProfileBean doctorProfileBean = new DoctorProfileBean();
             doctorProfileBean.setAge(10);
-            doctorProfileBean.setAvatarUrl("");
+            //模拟网络请求成功或失败
+            {
+                boolean onSuccess = true;
+                if (onSuccess)
+                    doctorProfileBean.setAvatarUrl("http://img1.2345.com/duoteimg/qqTxImg/2013/04/22/136676698710.jpg");
+                else
+                    doctorProfileBean.setAvatarUrl(null);
+            }
             doctorProfileBean.setCdNumber("2332");
             doctorProfileBean.setExcellent(true);
             String chars = "abcdjkl";

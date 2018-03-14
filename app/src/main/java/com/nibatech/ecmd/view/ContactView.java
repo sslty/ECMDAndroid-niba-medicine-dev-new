@@ -3,10 +3,12 @@ package com.nibatech.ecmd.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import com.nibatech.ecmd.R;
 import com.nibatech.ecmd.common.broadcast.BroadCast;
 import com.nibatech.ecmd.common.contact.Contact;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,6 +53,7 @@ public class ContactView extends LinearLayout implements SideBar.OnTouchingLette
 
         contactAdapter = new ContactAdapter();
         lvContact.setAdapter(contactAdapter);
+        lvContact.setOnScrollListener(contactAdapter);
         lvContact.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -116,7 +120,10 @@ public class ContactView extends LinearLayout implements SideBar.OnTouchingLette
         return item.getFirstChar();
     }
 
-    class ContactAdapter extends BaseAdapter {
+    class ContactAdapter extends BaseAdapter implements AbsListView.OnScrollListener {
+        public final static String CONTACT_ITEM = "contact_item";
+
+
         @Override
         public int getCount() {
             return contactList.size();
@@ -134,38 +141,66 @@ public class ContactView extends LinearLayout implements SideBar.OnTouchingLette
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
+            ViewHolder viewHolder;
+            if (null == convertView) {
+                convertView = View.inflate(activity, R.layout.list_contact, null);
+                viewHolder = new ViewHolder();
+                viewHolder.headItemView = (HeadItemView) convertView.findViewById(R.id.headItemView);
+                viewHolder.tvLetter = (TextView) convertView.findViewById(R.id.contact_catalog);
+                convertView.setTag(viewHolder);
+            } else {
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
 
-            View view = View.inflate(activity, R.layout.list_contact, null);
-
-            HeadItemView headItemView = (HeadItemView) view.findViewById(R.id.headItemView);
-            headItemView.setHeadViewImageAndGender(contactList.get(position).getDoctorProfile().getAvatarUrl(),
-                    contactList.get(position).getDoctorProfile().getGender(),
-                    contactList.get(position).getDoctorProfile().getFullName())
+            viewHolder.headItemView.setPicassoTag(CONTACT_ITEM)
+                    .setHeadViewImageAndGender(contactList.get(position).getDoctorProfile().getAvatarUrl(),
+                            contactList.get(position).getDoctorProfile().getGender(),
+                            contactList.get(position).getDoctorProfile().getFullName())
                     .showEmptyTopView()
                     .setHospital(contactList.get(position).getDoctorProfile().getDoctorType())
                     .setIntentData(contactList.get(position).getDoctorProfile().getHomepageUrl(), BroadCast.REFRESH_FRIENDS_CONTACT)
                     .showVIP(true);
 
 
-            TextView tvLetter = (TextView) view.findViewById(R.id.contact_catalog);
-
             //如果是第0个那么一定显示#号
             if (position == 0) {
-                tvLetter.setVisibility(View.VISIBLE);
-                tvLetter.setText("" + contactList.get(position).getFirstChar());
+                viewHolder.tvLetter.setVisibility(View.VISIBLE);
+                viewHolder.tvLetter.setText("" + contactList.get(position).getFirstChar());
             } else {
                 //如果和上一个item的首字母不同，则认为是新分类的开始
                 Contact prevData = contactList.get(position - 1);
                 if (contactList.get(position).getFirstChar() != prevData.getFirstChar()) {
-                    tvLetter.setVisibility(View.VISIBLE);
-                    tvLetter.setText("" + contactList.get(position).getFirstChar());
+                    viewHolder.tvLetter.setVisibility(View.VISIBLE);
+                    viewHolder.tvLetter.setText("" + contactList.get(position).getFirstChar());
                 } else {
-                    tvLetter.setVisibility(View.GONE);
+                    viewHolder.tvLetter.setVisibility(View.GONE);
                 }
             }
 
-            return view;
+            return convertView;
         }
+
+        @Override
+        public void onScrollStateChanged(AbsListView absListView, int scrollState) {
+            Picasso picasso = Picasso.with(activity);
+            if (scrollState == SCROLL_STATE_IDLE || scrollState == SCROLL_STATE_TOUCH_SCROLL) {
+                picasso.resumeTag(CONTACT_ITEM);
+            } else {
+                picasso.pauseTag(CONTACT_ITEM);
+            }
+
+        }
+
+        @Override
+        public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+        }
+
+    }
+
+    class ViewHolder {
+        HeadItemView headItemView;
+        TextView tvLetter;
     }
 
     public interface ContactListener {

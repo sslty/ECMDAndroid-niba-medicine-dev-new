@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.nibatech.ecmd.R;
 import com.nibatech.ecmd.activity.personal.DoctorPersonalActivity;
 import com.nibatech.ecmd.config.ExtraPass;
 import com.nibatech.ecmd.utils.UIUtils;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 
 public class HeadView extends LinearLayout {
@@ -26,7 +30,8 @@ public class HeadView extends LinearLayout {
     private final Button btnSig;
     private final Button btnTip;
     private Intent intent;
-
+    private String picassoTag;
+    private boolean isCached = false;
 
     public HeadView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
@@ -37,11 +42,15 @@ public class HeadView extends LinearLayout {
         btnTip = (Button) findViewById(R.id.btn_tip);
     }
 
+    public HeadView setPicassoTag(String picassoTag) {
+        this.picassoTag = picassoTag;
+        return this;
+    }
+
     public HeadView setShowWithoutData() {//用于动画,因为gone掉动画不执行
         ivHead.setVisibility(VISIBLE);
         return this;
     }
-
 
     public HeadView setGender(String gender) {
         if ("男".equals(gender)) {
@@ -102,10 +111,76 @@ public class HeadView extends LinearLayout {
     public HeadView setHeadPhoto(String imageUrl) {
         if (imageUrl != null) {
             ivHead.setVisibility(VISIBLE);
-            UIUtils.loadNetworkImage(activity, imageUrl, ivHead);
+//            UIUtils.loadNetworkImage(activity, imageUrl, ivHead);
+//            if (!isNetworkAvailable(activity) && !isCached) {
+//                isCached = false;
+//                Picasso.with(activity).load(R.drawable.image_show_error)
+//                        .into(ivHead);
+//            } else {
+//                if (picassoTag != null) {
+//                    Picasso.with(activity).load(imageUrl)
+//                            .placeholder(R.drawable.image_show_loading)
+//                            .error(R.drawable.image_show_error)
+//                            .tag(picassoTag)
+//                            .into(ivHead);
+//                } else {
+//                    Picasso.with(activity).load(imageUrl)
+//                            .placeholder(R.drawable.image_show_loading)
+//                            .error(R.drawable.image_show_error)
+//                            .into(ivHead);
+//                }
+//                isCached = true;
+//            }
+
+            if (!isNetworkAvailable(activity)) {
+                if (picassoTag != null) {
+                    Picasso.with(activity).load(imageUrl)
+                            .networkPolicy(NetworkPolicy.OFFLINE)//强制获取缓存图片
+                            .error(R.drawable.image_show_error)//error也是比较耗时的，但比网络要快很多
+                            .tag(picassoTag)
+                            .into(ivHead);
+                } else {
+                    Picasso.with(activity).load(imageUrl)
+                            .networkPolicy(NetworkPolicy.OFFLINE)
+                            .error(R.drawable.image_show_error)
+                            .into(ivHead);
+                }
+            } else {
+                if (picassoTag != null) {
+                    Picasso.with(activity).load(imageUrl)
+                            .error(R.drawable.image_show_error)
+                            .tag(picassoTag)
+                            .into(ivHead);
+                } else {
+                    Picasso.with(activity).load(imageUrl)
+                            .error(R.drawable.image_show_error)
+                            .into(ivHead);
+                }
+            }
+
         }
         return this;
     }
+
+    private static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) {
+        } else {
+            //如果仅仅是用来判断网络连接
+            //则可以使用 cm.getActiveNetworkInfo().isAvailable();
+            NetworkInfo[] info = cm.getAllNetworkInfo();
+            if (info != null) {
+                for (int i = 0; i < info.length; i++) {
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
 
     public HeadView setHeadResource(Integer resid) {
         if (resid != null) {
@@ -154,6 +229,5 @@ public class HeadView extends LinearLayout {
 
         return this;
     }
-
 
 }

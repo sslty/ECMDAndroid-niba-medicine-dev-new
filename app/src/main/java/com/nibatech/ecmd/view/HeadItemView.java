@@ -20,6 +20,7 @@ public class HeadItemView extends LinearLayout {
     private final TextView tvHospital;
     private final TextView tvVIP;
     private final LinearLayout llContentPart;
+    private String picassoTag;
 
 
     public HeadItemView(final Context context, final AttributeSet attrs) {
@@ -35,7 +36,31 @@ public class HeadItemView extends LinearLayout {
         tvVIP = (TextView) findViewById(R.id.tv_VIP);
     }
 
+    public HeadItemView setPicassoTag(String picassoTag) {
+        listItemHeadPartView.getHeadView().setPicassoTag(picassoTag);
+        return this;
+    }
+
     public HeadItemView setHeadViewImageAndGender(String imageUrl, String gender, String name) {
+        String nameAndGender = "";
+        if (name != null) {
+            nameAndGender += name;
+        }
+        if (gender != null) {
+            nameAndGender += (" " + gender);
+        }
+
+        listItemHeadPartView.setHeadViewImage(imageUrl, gender);
+        if (!TextUtils.isEmpty(nameAndGender)) {
+            tvNameAndGender.setVisibility(VISIBLE);
+            tvNameAndGender.setText(nameAndGender);
+        } else {
+            tvNameAndGender.setVisibility(GONE);
+        }
+        return this;
+    }
+
+    public HeadItemView setHeadViewImageAndGender(String tag, String imageUrl, String gender, String name) {
         String nameAndGender = "";
         if (name != null) {
             nameAndGender += name;
@@ -52,6 +77,7 @@ public class HeadItemView extends LinearLayout {
         }
         return this;
     }
+
 
     public HeadItemView showEmptyTopView() {
         listItemHeadPartView.setTopText("");

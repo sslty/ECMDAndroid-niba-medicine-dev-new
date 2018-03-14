@@ -197,7 +197,7 @@ public class SideBar extends View {
             }
         }
         setPaint();
-        return paint.measureText(b[index]) * 4 / 3;//让宽度看起来有padding
+        return paint.measureText(b[index]) * 10 / 3;//让宽度看起来有padding
     }
 
     private void setPaint() {
